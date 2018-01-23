@@ -1,0 +1,13 @@
+mixin btn(valLabel, valTag, hrefVal, iconSide)
+	- valTag = valTag || 'button'
+	- hrefVal = hrefVal || '#'
+	- iconSide = iconSide || 'right'
+	- (valTag === 'a') ? attributes.href = hrefVal : attributes.href
+
+	+b(valTag).btn&attributes(attributes)
+		if (iconSide === 'right')
+			+e('span').label=valLabel
+			block
+		else
+			block
+			+e('span').label=valLabel

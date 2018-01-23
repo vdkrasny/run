@@ -1,0 +1,6 @@
+mixin cap(titleVal, subtitleVal)
+	- var subtitleVal = subtitleVal || 'Подключись на выбор в каждом пакетном предложении'
+
+	+b.cap&attributes(attributes)
+		+b('span').capt._h4.__title!=titleVal
+		+e('span').subtitle!=subtitleVal

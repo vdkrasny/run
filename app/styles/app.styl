@@ -1,0 +1,50 @@
+import('sprites/*')
+import('helpers/svg-size')
+@import '../../node_modules/jquery-wizard/dist/css/wizard.min.css'
+@import '../../node_modules/spectrum-colorpicker/spectrum.css';
+@import 'helpers/variables'
+@import 'helpers/mixins'
+@import 'helpers/fonts'
+@import 'helpers/optimize'
+
+html
+  font-family $app-font-family
+  font-size $app-font-size
+body
+  font-weight $app-font-weight
+  line-height $app-line-height
+  color $app-color
+  background-color $app-bg-color
+a
+  text-decoration none
+  color inherit
+
++media($breakpoints[sm])
+  ::selection
+    background $color-accent1
+  ::-moz-selection
+    background $color-accent1
+
+  ::-webkit-scrollbar
+    width 8px
+    height 8px
+    &-track
+      background-color #eee
+      border-radius 4px
+      &:hover
+        background-color #d6e2e5
+    &-thumb
+      background-color $color-accent2_rich
+      border none
+      border-radius 4px
+      &:hover
+        cursor pointer
+        background-color $color-accent1
+
+.wow
+  visibility hidden
+
+@import 'helpers/grid.styl'
+import('../blocks/ui/**/*')
+import('../blocks/widgets/**/*')
+import('../blocks/layouts/**/*')

@@ -1,0 +1,4 @@
+mixin browser-live(imgName)
+	+b.browser-live&attributes(attributes)
+		+e('img').image(src='./assets/images/' + imgName)
+		block

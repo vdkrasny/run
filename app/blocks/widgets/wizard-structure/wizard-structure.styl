@@ -1,0 +1,51 @@
+.wizard-structure
+  &__item
+    margin-bottom 55px
+    &:last-child
+      margin-bottom 0
+
+  &__new-name
+    padding-left 45px
+    display flex
+    flex-wrap wrap
+    align-items center
+
+    &-btn
+      margin-left 40px
+      font-weight 500
+      text-transform none
+      color #999
+
+  &__desc
+    margin-top 5px
+    margin-left 60px
+
+  &__grid-add-form
+    align-items flex-end
+
+  &__add-form
+    display block
+
+    &-title
+      margin-bottom 45px
+
++media($breakpoints[lg], 'max')
+  .wizard-structure
+    &__item
+      margin-bottom 30px
+    &__add-form
+
+      &-title
+        margin-bottom 25px
+
+
++media($breakpoints[xs], 'max')
+  .wizard-structure
+    &__item
+      margin-bottom 20px
+
+    &__desc
+      margin-left 0
+
+    &__new-name
+      padding-left 0

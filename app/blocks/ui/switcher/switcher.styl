@@ -1,0 +1,81 @@
+$parent-class = 'switcher'
+
+.switcher
+  position relative
+  display inline-block
+  line-height 1
+
+  &__true
+    position absolute
+    top 50%
+    left 0
+    margin-top -5px
+    display block
+    opacity 0
+
+    & + .{$parent-class}__wrap
+      position relative
+      padding-left 45px
+      display flex
+      flex-direction column
+      cursor pointer
+      user-select none
+
+      .{$parent-class}__false
+        position absolute
+        z-index 1
+        top 50%
+        left 0
+        display block
+        box-sizing border-box
+        width 18px
+        height @width
+        font-size 0
+        line-height 0
+        background #fff
+        border 2px solid #d3d3d3
+        transform translateY(-50%)
+        &:before // mark
+          position absolute
+          z-index 2
+          left 0
+          bottom 1px
+          display block
+          width 20px
+          height 16px
+          content ''
+          background url(../images/icon_checkbox.png)
+          transition .2s ease
+          transition-property opacity, transform
+
+      &:hover
+        .{$parent-class}__false
+          border-color $color-accent1
+
+    &:checked + .{$parent-class}__wrap
+      .{$parent-class}__false
+        &:before
+          opacity 1
+          transform scale(1)
+
+    &:not(:checked) + .{$parent-class}__wrap
+      .{$parent-class}__false
+        &:before
+          opacity 0
+          transform scale(0)
+
+    &:disabled + .{$parent-class}__wrap
+      cursor default
+      color #d3d3d3
+      &:hover
+        .{$parent-class}__false
+          border-color inherit
+
+      .{$parent-class}__false
+        background-color #e7e7e7
+        &:before
+          filter grayscale(100%)
+
+    &:focus + .{$parent-class}__wrap
+      .{$parent-class}__false
+        border-color $color-accent1

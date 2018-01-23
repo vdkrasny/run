@@ -1,0 +1,155 @@
+.remodal-bg.remodal-is-opening,
+.remodal-bg.remodal-is-opened
+	filter blur(3px)
+	
+// Default theme styles of the overlay
+.remodal-overlay
+	background alpha(#fff, 91%)
+
+.remodal-overlay.remodal-is-opening,
+.remodal-overlay.remodal-is-closing
+	animation-duration .3s
+	animation-fill-mode forwards
+	
+.remodal-overlay.remodal-is-opening
+	animation-name remodal-overlay-opening-keyframes
+	
+.remodal-overlay.remodal-is-closing
+	animation-name remodal-overlay-closing-keyframes
+	
+// Default theme styles of the wrapper
+.remodal-wrapper
+	padding 0 10px
+	
+// Default theme styles of the modal dialog
+.remodal
+	transform translate3d(0, 0, 0)
+	&.remodal-is-opening,
+	&.remodal.remodal-is-closing
+		animation-duration .3s
+		animation-fill-mode forwards
+	&.remodal-is-opening
+		animation-name remodal-opening-keyframes
+	&.remodal-is-closing
+		animation-name remodal-closing-keyframes
+
+	&_notice
+		&.remodal-is-opening
+			animation-name slideInLeft
+		
+// Vertical align of the modal dialog
+.remodal,
+.remodal-wrapper:after
+	vertical-align middle
+	
+// Close button
+.remodal-close
+	position absolute
+	top 15px
+	right 15px
+	margin 0
+	padding 0
+	overflow visible
+	width 20px
+	height 20px
+	line-height 20px
+	text-decoration none
+
+	cursor pointer
+	color $color-primary
+	background transparent
+	border none
+	outline none
+	&:hover
+	&:focus
+		.icon
+			transform scale(.8)
+	.icon
+		transition transform .2s
+		&:before
+			display block
+			font-family Arial, 'Helvetica CY', 'Nimbus Sans L', sans-serif
+			font-size 34px
+			text-align center
+			content '\00d7'
+		
+// Dialog buttons
+.remodal-confirm,
+.remodal-cancel
+	margin 0
+	padding 12px 0
+	display inline-block
+	overflow visible
+	min-width 110px
+	font inherit
+	text-align center
+	vertical-align middle
+	text-decoration none
+	cursor pointer
+	border none
+	outline none
+	transition background .2s
+	
+.remodal-confirm
+	color #fff
+	background #81c784
+	&:hover
+	&:focus
+		background #66bb6a
+		
+.remodal-cancel
+	color #fff
+	background #e57373
+	&:hover,
+	&:focus
+		background #ef5350
+	
+// Keyframes
+@keyframes remodal-opening-keyframes
+	from
+		opacity 0
+		transform scale(1.05)
+	to
+		opacity 1
+		filter blur(0)
+		transform none
+
+@keyframes remodal-closing-keyframes
+	from
+		opacity 1
+		transform scale(1)
+	to
+		opacity 0
+		filter blur(0)
+		transform scale(.95)
+		
+@keyframes remodal-overlay-opening-keyframes
+	from
+		opacity 0
+	to
+		opacity 1
+
+@keyframes remodal-overlay-closing-keyframes
+	from
+		opacity 1
+	to
+		opacity 0
+	
+// IE8
+.lt-ie9
+	.remodal-overlay
+		background #2b2e38
+	.remodal
+		width 700px
+
+.r-page
+	padding 45px
+	width 1400px
+	text-align left
+	background #fff
+	box-shadow 0 11px 163px alpha(#086e99, 47%)
+
++media($breakpoints[xl], 'max')
+	.r-page
+		padding 35px
+		width 95vw

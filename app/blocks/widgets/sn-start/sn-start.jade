@@ -1,0 +1,12 @@
+mixin sn-start()
+	+b.sn-start&attributes(attributes)
+		+header.__header
+		+e.wrap.container
+			+b.greeting
+				+b('h1').capt._h1.__title
+					+b('span').accents._type-1 Сделать сайт
+					+b('span').accents._type-2 очень просто
+				+e('p').subtitle Ваш индивидуальный сайт всего за 6 шагов
+			+btn('Попробуй прямо сейчас', 'a', '#modal')._primary.__btn
+			+e('img').image(src='./assets/images/img_mobile_for-start.png')
+		+b.bg-bubbles.__bg-bubbles

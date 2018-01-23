@@ -1,0 +1,60 @@
+.hint
+  position relative
+  &:hover
+  &:focus
+    .hint__message
+      opacity 1
+
+  &__message
+    position absolute
+    z-index 1
+    top -10px
+    left 100%
+    margin-left 20px
+    padding 20px
+    min-width 400px
+    font-size 14px
+    font-style italic
+    background-color #ffffff
+    border-left 6px solid $color-accent3
+    border-radius 6px
+    opacity 0
+    box-shadow 0 5px 81px alpha(#00aeff, 23%)
+
+    pointer-events none
+    transition .2s
+    transition-property opacity
+
+
+    &:before
+      position absolute
+      top 20px
+      left -20px
+      width 0
+      height 0
+      content ''
+      border 9px solid transparent
+      border-top-color $color-accent3
+      border-right-color $color-accent3
+
++media($breakpoints[lg], 'max')
+  .hint
+    &__message
+      min-width 340px
+
++media($breakpoints[sm], 'max')
+  .hint
+    &__message
+      top auto
+      right -100%
+      left auto
+      margin-top 20px
+      margin-left 0
+      min-width 270px
+      border-top 6px solid $color-accent3
+      border-left 0
+      &:before
+        top -24px
+        left calc(100% - 50px)
+        border-top-color transparent
+        border-bottom-color $color-accent3

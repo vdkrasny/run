@@ -1,0 +1,115 @@
+.sn-offer
+	overflow hidden
+	font-weight bold
+	text-transform uppercase
+	background-color #fff
+
+	&__grid
+		margin-x -15px
+		+grid-set_col-style()
+			padding 15px
+
+	&__title
+		font-size 48px
+
+	&__price
+		font-size 160px
+		line-height 110px
+		& > span
+			font-size 90px
+			font-weight 500
+
+	&__time
+		line-height .95
+		& > span
+			font-size 150px
+
+	&__btn
+		margin-top 25px
+		width 100%
+
+	&__content
+		position relative
+		padding-top 90px
+		padding-right 35px
+		padding-left 280px
+		padding-bottom 50px
+		border 22px solid #fff6de
+
+	&__image
+		position absolute
+		left -350px
+		bottom -130px
+		user-select none
+		pointer-events none
+
++media($breakpoints[xl], 'max')
+	.sn-offer
+		&__price-wrap
+			display flex
+			flex-wrap wrap
+			align-items center
+			justify-content space-around
+
+		&__grid
+			margin-x 0
+			+grid-set_col-style()
+				padding 0
+
+		&__content
+			margin-left auto
+			padding-y 25px
+			padding-left 35px
+			padding-bottom 100px
+			width 80%
+
+		&__advant
+			padding-left 230px
+			text-align center
+
+		&__btn
+			margin 25px auto 0
+
++media($breakpoints[md], 'max')
+	.sn-offer
+
+		&__content
+			width 100%
+
+		&__price
+			font-size 130px
+
+		&__time
+			& > span
+				font-size 120px
+
+		&__advant
+			padding-top 30px
+
++media($breakpoints[sm], 'max')
+	.sn-offer
+		&__image
+			display none
+
+		&__content
+			padding 15px
+			border-width 12px
+
+		&__advant
+			padding-top 0
+			padding-left 0
+
++media($breakpoints[xs], 'max')
+	.sn-offer
+		&__title
+			font-size 36px
+
+		&__price
+			font-size 100px
+			line-height 110px
+			& > span
+				font-size 70px
+
+		&__time
+			& > span
+				font-size 90px

@@ -1,0 +1,57 @@
+.field
+  padding 0
+  display block
+  width 100%
+  font-family $font-family_eurofurence
+  font-size 18px
+  color $color-primary
+  background-color #ffffff
+  border none
+  +style-placeholder()
+    color $color-primar
+  &:disabled
+    background-color #ababab
+
+  &_primary
+    padding 15px 35px
+    line-height 45px
+    border-radius 75px
+    &:focus
+      background-color #fdfdfd
+
+  &_form
+    padding 20px 30px
+    font-size 16px
+    line-height 20px
+    color #999
+    background-color #f0f5f7
+    border-radius 4px
+
+    &-area
+      min-height 140px
+
+  &_select
+    padding 0
+    display block
+    height 60px
+    background-image url(../images/icon_cart.png)
+    background-repeat no-repeat
+    background-position 80% center
+    & > select
+      position relative
+      padding 0 35px
+      width 100%
+      height 100%
+      cursor pointer
+      appearance none
+      background transparent
+      border none
+
++media($breakpoints[xs], 'max')
+  .field
+
+    &_primary
+      line-height 23px
+
+    &_form
+      padding 15px

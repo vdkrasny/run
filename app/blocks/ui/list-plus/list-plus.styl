@@ -1,0 +1,21 @@
+.list-plus
+
+	&__item
+		position relative
+		padding 6px 10px 6px 20px
+		font-size 16px
+		line-height 18px
+		&:before
+			position absolute
+			top 50%
+			left 9px
+			display inline-block
+			font-family $font-family_circe
+			font-size 14px
+			font-weight bold
+			line-height 30px
+			content '+'
+			color #68ab28
+			transform translateY(-50%)
+		&:nth-child(2n + 1)
+			background-color #f9f9f9

@@ -1,0 +1,45 @@
+.sn-feedback
+  position relative
+  margin-top -200px
+  padding-top 200px
+  overflow hidden
+  color #ffffff
+  background url(../images/bg_footer.jpg)
+
+  &__container
+    margin-top 70px
+    padding-left 60px
+
+  &__greeting
+    font-weight bold
+
+  &__form
+
+    &-controls
+      margin-top 35px
+      text-align center
+
+    &-btn
+      min-width 520px
+
+  &__bg-bubbles
+    top 280px
+
++media($breakpoints[md], 'max')
+  .sn-feedback
+    margin-top 0
+    padding-top 35px
+
+    &__container
+      margin-top 0
+      padding-left 8px
+
+    &__form
+
+      &-controls
+        margin-top 35px
+        text-align center
+
+      &-btn
+        width 100%
+        min-width inherit

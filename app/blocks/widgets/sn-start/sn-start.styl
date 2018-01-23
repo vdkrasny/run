@@ -1,0 +1,37 @@
+.sn-start
+	position relative
+	display flex
+	flex-direction column
+	min-height 965px
+	text-align center
+	color #ffffff
+	background #262525 url(../images/bg_sn-start.jpg) no-repeat center top
+
+	&__wrap
+		margin-top auto
+
+	&__btn
+		margin-top 20px
+		margin-bottom 60px
+		min-width 425px
+
+	&__image
+		margin auto
+		display block
+		max-width 90%
+		user-select none
+		pointer-events none
+
+	&__bg-bubbles
+		top 200px
+
++media($breakpoints[sm], 'max')
+	.sn-start
+		min-height inherit
+		&__btn
+			margin-top 40px
+
++media($breakpoints[xs], 'max')
+	.sn-start
+		&__btn
+			min-width inherit

@@ -1,0 +1,114 @@
+$grid-gutter = 20px
+$grid-columns = 12
+
+grid-make_col(colSize, gridColNum = $grid-columns)
+  flex 0 0 percentage(colSize / gridColNum)
+  max-width percentage(colSize / gridColNum)
+
+grid-make_col-offset(colSize, gridColNum = $grid-columns)
+  margin-left percentage(colSize / gridColNum)
+
+grid-set_col-style()
+  & > .col
+  & > [class*=col-]
+    {block}
+
+$col-style
+  position relative
+  padding-x ($grid-gutter / 2)
+  width 100%
+  min-height 1px
+
+.grid
+  display flex
+  flex-wrap wrap
+  margin-x ($grid-gutter / 2) * -1
+  &_stretch
+    height 100%
+  &_gutters
+    &_all
+      +grid-set_col-style()
+        padding ($grid-gutter / 2)
+    &_no
+      margin-x 0
+      +grid-set_col-style()
+        padding-x 0
+
+for key, value in $breakpoints
+  .col
+  .col-auto
+    @extends $col-style
+
+  for $i in (1..$grid-columns)
+    .col-{$i}
+      @extends $col-style
+
+  .col-{key}-auto
+    @extends $col-style
+
+  for $i in (1..$grid-columns)
+    .col-{key}-{$i}
+      @extends $col-style
+
+.col
+  flex-basis 0
+  flex-grow 1
+  max-width 100%
+
+.col-auto
+  flex 0 0 auto
+  width auto
+
+for $i in (1..$grid-columns)
+  .col-{$i}
+    grid-make_col($i, $grid-columns)
+
+.col_order-first
+  order -1
+
+.col_order-last
+  order 1
+
+.col_order-no
+  order 0
+
+for $i in (1..($grid-columns - 1))
+  .col_offset-{$i}
+    grid-make_col-offset($i, $grid-columns)
+
+for key, value in $breakpoints
+  +media(value)
+    .col-{key}
+      flex-basis 0
+      flex-grow 1
+      max-width 100%
+
+    .col-{key}-auto
+      flex 0 0 auto
+      width auto
+
+    for $i in (1..$grid-columns)
+      .col-{key}-{$i}
+        grid-make_col($i, $grid-columns)
+
+    for $i in (1..($grid-columns - 1))
+      .col_offset-{key}-{$i}
+        grid-make_col-offset($i, $grid-columns)
+
+    .col_order-{key}-first
+      order -1
+
+    .col_order-{key}-last
+      order 1
+
+    .col_order-{key}-no
+      order 0
+
+
+
+.hidden
+  display none
+for key, value in $breakpoints
+  +media(value, 'max')
+    .hidden-after-{key}
+      display none

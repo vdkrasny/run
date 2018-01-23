@@ -1,0 +1,11 @@
+mixin header()
+	+b('header').header&attributes(attributes)
+		+e.grid.grid
+			+e.wrap-start.col-9.col-sm-4
+				+b('p').tagline.__tagline Разработка #[span express] сайтов
+					br
+					| индивидуально под ваш проект
+			+e.wrap.col-4.hidden-after-sm
+				+logo('logo.png').__logo
+			+e.wrap-end.col-3.col-sm-4
+				+btn-burger

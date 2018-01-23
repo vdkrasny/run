@@ -1,0 +1,26 @@
+mixin sn-clients()
+	+b.sn-clients&attributes(attributes)
+		+cap('Наши клиенты').section__wrap-cap
+		.container
+			+e.slider.slick
+				-for(i = 1; i < 3; i++)
+					+e.slide
+						+e.image-wrap
+							+e('img').image(src='./assets/images/clients/client1.jpg' alt='')
+						+e.image-wrap
+							+e('img').image(src='./assets/images/clients/client2.jpg' alt='')
+					+e.slide
+						+e.image-wrap
+							+e('img').image(src='./assets/images/clients/client3.jpg' alt='')
+						+e.image-wrap
+							+e('img').image(src='./assets/images/clients/client4.jpg' alt='')
+					+e.slide
+						+e.image-wrap
+							+e('img').image(src='./assets/images/clients/client5.jpg' alt='')
+						+e.image-wrap
+							+e('img').image(src='./assets/images/clients/client6.jpg' alt='')
+					+e.slide
+						+e.image-wrap
+							+e('img').image(src='./assets/images/clients/client7.jpg' alt='')
+						+e.image-wrap
+							+e('img').image(src='./assets/images/clients/client8.jpg' alt='')

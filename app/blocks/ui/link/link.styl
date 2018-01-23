@@ -1,0 +1,38 @@
+.link
+	display inline-block
+	transition all .3s cubic-bezier(.4, 0, .2, 1)
+	&_seo
+		position-center(2)
+		display block
+		overflow hidden
+		width 100%
+		height 100%
+		text-indent -99999px
+		opacity 0
+	&_primary
+		text-decoration underline
+		color inherit
+		&:hover
+		&:focus
+			text-decoration none
+	&_is-act
+		&_line
+			&:hover
+			&:focus
+				text-decoration underline
+		&_no-line
+			&:hover
+			&:focus
+				text-decoration none
+		&_primary
+			&:hover
+			&:focus
+				color $color-primary
+		&_accent-1
+			&:hover
+			&:focus
+				color $color-accent_1
+		&_accent-2
+			&:hover
+			&:focus
+				color $color-accent_2

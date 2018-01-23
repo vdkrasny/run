@@ -1,0 +1,29 @@
+.header
+  padding 25px 70px
+  width 100%
+  color #ffffff
+  transition .6s ease
+  transition-property padding, background
+
+  &__grid
+    align-items center
+
+  &__wrap
+    text-align center
+    &-start
+      text-align left
+    &-end
+      display flex
+      justify-content flex-end
+
+  &_fixed
+    position fixed
+    z-index 100
+    top 0
+    right 0
+    left 0
+    background-color #000
+
++media($breakpoints[sm], 'max')
+  .header
+    padding 20px

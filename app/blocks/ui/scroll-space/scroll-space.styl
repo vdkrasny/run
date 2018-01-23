@@ -1,0 +1,14 @@
+.scroll-space
+  position relative
+  overflow hidden
+  width 100%
+  height 100%
+
+  &_hidden
+    .scroll-space__inner
+      width 'calc(%s + %s)' % (100% 20px)
+
+  &__wrap
+    padding 15px
+    overflow-y auto
+    height 100%

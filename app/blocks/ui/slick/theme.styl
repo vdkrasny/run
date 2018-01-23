@@ -1,0 +1,83 @@
+.slick
+	position relative
+	&_arrow-pos
+		&_top-right
+			.slick-prev
+			.slick-next
+				top 15px
+				left auto
+				transform none
+			.slick-prev
+				right 75px
+			.slick-next
+				right 45px
+
+.slick-list
+	.slick-loading &
+		background #fff url(../scripts/slick/ajax-loader.gif) center center no-repeat
+
+.slick-prev
+.slick-next
+	position absolute
+	z-index 2000
+	top 50%
+	display block
+	min-width 30px
+	min-height 40px
+	font-size 0
+	line-height 0
+	cursor pointer
+	background transparent no-repeat center
+	border none
+	transition .2s ease
+	transition-property opacity
+	transform translateY(-50%)
+	&:hover
+		opacity .7
+	&.slick-disabled
+		opacity .8
+
+.slick-prev
+	left 0
+	background-image url(../images/icon_slider-arrow_l.png)
+
+.slick-next
+	right 0
+	background-image url(../images/icon_slider-arrow_r.png)
+
+.slick-dotted
+	margin-bottom 26px
+
+.slick-dots
+	position absolute
+	top 100%
+	display flex
+	width 100%
+	justify-content center
+	pointer-events none
+
+	& > li
+		position relative
+		margin 8px 12px
+		display inline-block
+		pointer-events auto
+
+		& > button
+			display block
+			width 10px
+			height @width
+			font-size 0
+			line-height 0
+			cursor pointer
+			color transparent
+			background $color-primary
+			border none
+			border-radius 50%
+			transition background .2s ease
+			&:hover
+			&:focus
+				background-color $color-accent2
+
+		&.slick-active
+			& > button
+				background-color $color-accent1

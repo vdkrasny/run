@@ -1,0 +1,93 @@
+.btn-burger
+  $size = 45px
+  $height = 16px // uses icon height
+
+  $line-size = 2px
+  $line-radius = $line-size
+  $line-color = gray
+  $to-translate = (($height - $line-size) / 2) // deformate line param
+
+  $effect-sec = .25s
+  $effect = ease-in-out
+
+  position fixed
+  z-index 101
+  top 45px
+  right 70px
+  display inline-block
+  overflow hidden
+  width $size
+  min-width $size
+  height $size
+  min-height $size
+  cursor pointer
+  background-color transparent
+  border 3px solid $line-color
+
+  &__icon
+    display inline-block
+    width 19px
+    height $height
+    vertical-align middle
+    position-center()
+  &__line
+    position absolute
+    left 0
+    display block
+    width 100%
+    height $line-size
+    pointer-events none
+    background-color $line-color
+    border-radius $line-radius
+    &_top
+      top 0
+      transition all $effect-sec $effect
+    &_icon
+      top 0
+      bottom 0
+      margin auto
+      transition all $effect-sec $effect
+      &:before
+        position absolute
+        left 0
+        width 100%
+        height $line-size
+        content ''
+        background-color $line-color
+        border-radius $line-radius
+        transition all $effect-sec $effect
+    &_end
+      bottom 0
+      transition all $effect-sec $effect
+  &.is-active
+
+    &.btn-burger_fixed
+      position relative
+      top auto
+      right auto
+
+    .btn-burger__line
+      &_top
+        opacity 0
+        transform translate3d((-2 * $to-translate), 0, 0)
+
+      &_icon
+        height ($line-size * 2)
+        background-color $color-accent3
+        transform rotate(45deg)
+        transition transform $effect-sec $effect
+
+        &:before
+          height ($line-size * 2)
+          background-color $color-accent3
+          transform rotate(-90deg)
+
+      &_end
+        opacity 0
+        transform translate3d((2 * $to-translate), 0, 0)
+
++media($breakpoints[sm], 'max')
+  .btn-burger
+    &_fixed
+      top 20px
+      right 20px

@@ -1,0 +1,72 @@
+.rewiev
+  position relative
+  z-index 12
+  padding 35px
+  overflow hidden
+  background-color #fff
+  border-radius 180px
+  box-shadow 0 10px 250px alpha($color-accent2, 31%)
+
+  &__wrap
+    padding-right 25px
+    display flex
+    align-items center
+
+  &__image-wrap
+    margin-right 30px
+    display flex
+    overflow hidden
+    min-width 290px
+    max-width 290px
+    height 290px
+    background #eee
+    border-radius 50%
+
+  &__image
+    margin auto
+    display block
+    max-width 100%
+
+  &__content
+    padding-y 15px
+
+  &__title
+    display block
+    font-size 24px
+    font-weight bold
+    color $color-accent3
+    text-transform uppercase
+
+  &__subtitle
+    margin-bottom 20px
+    display block
+    font-size 20px
+    color #8c8c8c
+
+  &__date
+    margin-bottom 20px
+    display block
+    font-weight bold
+    color #78d7ff
+
+  &__text
+    margin-top 20px
+
++media($breakpoints[md], 'max')
+  .rewiev
+    border-radius 0
+
+    &__image-wrap
+      margin-right 0
+
+    &__wrap
+      padding-right 0
+      flex-direction column
+
++media($breakpoints[sm], 'max')
+  .rewiev
+    padding 15px
+    &__image-wrap
+      min-width 210px
+      max-width 210px
+      height 210px

@@ -1,0 +1,235 @@
+mixin wizard()
+	+b('form').wizard(method='POST')&attributes(attributes)
+		+e.steps(role='tablist')
+			- var arr = [['type', '1', 'Тип сайта'], ['structure', '2', 'Структура сайта'], ['desc', '3', 'Описание'], ['look', '4', 'Внешний вид'], ['content', '5', 'Контент'], ['contacts', '6', 'Контакты']]
+				each i, idx in arr
+					+e.tab(role='tab' class=(idx === 0 ? 'is-active' : ''))
+						+e('img').tab-image(src='./assets/images/modal-steps/' + i[0] + '.png')
+						+e.tab-content
+							+e.tab-label
+								+b('label').label._accent-2=i[1] + ' шаг'
+							+e('span').tab-name=i[2]
+			+e.steps-track
+				+e.steps-track-thumb
+		+e.content
+			+e.panel.is-active#tab-type(role='tabpanel')
+				input#site-type(type='hidden' name='site-type')
+				+e('header').panel-header
+					+cap('Выберите тип сайта', 'На выбор перед вами 6 пакетов')
+				.grid.grid_gutters_all
+					- var cardsWizard = getData('modal-cards');
+						each item in cardsWizard
+							.col-sm-6.col-lg-4
+								+b.card._control
+									+e.image-wrap
+										+e('img').image(src=item.imageSrc)
+									+e.content
+										- (item.titleClass !== '') ? a = ('capt-shadow' + item.titleClass) : a = ''
+											+b('span').capt-shadow.__title(class=a)!=item.title
+									p!=item.text
+			+e.panel#tab-structure(role='tabpanel')
+				+e('header').panel-header
+					+cap('страницы для сайта', 'Отметьте  нужные вам странницы')
+				+e.panel-content.wizard-structure__
+					+scroll-space.wizard__panel-content-scroll
+						+e.item
+							+switcher()(name='selected-pages' value="Главная" data-parent="Одноэкранник")
+								+b('span').capt-shadow._type-1 Главная
+							+e.desc
+								p Мы предлагаем различные варианты расположения элементов на сайте, благодаря этому вы сможете выбрать наиболее удобный и оптимальный именно для вас
+						+e.item
+							+switcher()(name='selected-pages' vlaue="О компании" data-parent="Одноэкранник")
+								+b('span').capt-shadow._type-1 О компании
+							+e.desc
+								p Мы предлагаем различные варианты расположения элементов на сайте, благодаря этому вы сможете выбрать наиболее удобный и оптимальный именно для вас
+						+e.item
+							+switcher()(name='selected-pages' value="Портфолио" data-parent="Лендинг")
+								+b('span').capt-shadow._type-1 Портфолио
+							+e.desc
+								p Мы предлагаем различные варианты расположения элементов на сайте, благодаря этому вы сможете выбрать наиболее удобный и оптимальный именно для вас
+						+e.item
+							+switcher()(name='selected-pages' value='услуги' data-parent="Лендинг")
+								+b('span').capt-shadow._type-1 услуги
+							+e.desc
+								p Мы предлагаем различные варианты расположения элементов на сайте, благодаря этому вы сможете выбрать наиболее удобный и оптимальный именно для вас
+						+e.item
+							+switcher()(name='selected-pages' value='Контакты' data-parent="Лендинг")
+								+b('span').capt-shadow._type-1 Контакты
+							+e.desc
+								p Мы предлагаем различные варианты расположения элементов на сайте, благодаря этому вы сможете выбрать наиболее удобный и оптимальный именно для вас
+						+e.item.__new-name
+							input(type='hidden')
+							+b('span').capt-shadow._type-1 Название страницы
+							+btn('Удалить страницу')._form-clear.__new-name-btn
+								img(src='./assets/images/icon_min.png').btn__icon
+					.wizard__panel-content-inner
+						+e.grid-add-form.grid_gutters_all
+							.col-12.col-lg-7
+								+e.add-form
+									+b('span').capt-shadow._type-1.__add-form-title Другие страницы
+									+b.field-line
+										+field('Название страницы')._form(id='page-name')
+										+b('button').btn._form-clear#add-page(type='button' role='button')
+											img(src='./assets/images/icon_plus.png')
+							.col-12.col-lg-5
+								.wizard__skip
+									+b.switcher.js-wizard-skip
+										+e('input').true(type='checkbox' id='wizard-structure-skip' name='wizard-structure-skip')
+										+e('label').wrap(for='wizard-structure-skip')
+											+e('span').false(role='checkbox')
+											+b('p').accents._type-1 пропустить
+											p На усмотрение дизайнера
+				// +e('footer').panel-footer
+			+e.panel(role='tabpanel')
+				+e('header').panel-header
+					+cap('общее описание сайта', 'Отметьте  нужные вам странницы')
+				+e.panel-content
+					+e.grid.grid_gutters_all
+						.col-12
+							+b('span').capt-shadow._type-1 Название фирмы (сайта)
+						.col-12.col-lg-6
+							+field('Название страницы')._form(name='site-name')
+					+e.grid.grid_gutters_all
+						.col-12
+							+b('span').capt-shadow._type-1 Чем занимаеться компания
+						.col-12
+							+field('Краткое описание', 'textarea')._form._form-area(name='site-description')
+					+e.grid._like.grid_gutters_all
+						.col-12
+							+b('span').capt-shadow._type-1 Сайты которые вам нравяться
+						- for (var i = 0; i < 3; i++)
+							.col-12.col-lg-5
+								+field('Краткое описание')._form(name='like-site[]')
+							+e.grid-col-icon.col-1
+								img(src='./assets/images/icon_plus.png')
+							.col-11.col-lg-6
+								+field('Описание , чем нравиться сайт')._form(name='like-site-description[]')
+					+e.grid._like.grid_gutters_all
+						.col-12
+							.wizard__hint-wrap
+								+b('span').capt-shadow._type-1 другие предпочтения
+								+b.hint.wizard__hint-icon
+									img(src='./assets/images/icon_info.png')
+									+e.message Все сложности - возьмем на себя. Благодаря высокой квалификации наших сотрудников и открытому подходу к каждому клиенту, легкость в управлении сайтом будет Вам гарантирована. Работая по всему Миру мы, вместе с Вами, расширим границы вашего рынка сбыта.
+						.col-12
+							+field('Краткое описание')._form(name='wishes')
+				// +e('footer').panel-footer
+			+e.panel#tab-look(role='tabpanel')
+				input#selected-style(type='hidden')
+				+e('header').panel-header
+					+cap('Стилистика сайта', 'Отметьте нужные вам странницы')
+					.grid.grid_gutters_all
+						- for (var i = 0; i < 4; i++)
+							.col-md-6.col-lg-3
+								+b.style-option(data-option=i)
+									+e.image-wrap
+										+e('img').image(src='http://irysh-sky.by/wp-content/uploads/2017/10/page__banner_about.jpg')
+									+e('span').name FLAT
+									+e('span').hidden live view
+				+e.panel-content.wizard-look__
+					.wizard__panel-content-inner
+						.grid.grid_gutters_all
+							.col-12
+								+b('span').capt-shadow._type-1 Предпочитаемые цвета
+							.col-12.col-lg-4
+								+e.field-line.field-line
+									p Основной цвет
+									input.field-spectrum(type='text')
+							.col-12.col-lg-6
+								+e.field-line.field-line
+									p Дополнительный цвет
+									input.field-spectrum(type='text')
+						.grid.grid_gutters_all#tab-look-add-field
+							.col-12
+								+b('span').capt-shadow._type-1 Фон сайта
+							.col-12.col-lg-4
+								+e.field-line.field-line
+									p Основной цвет
+									input.field-spectrum(type='text')
+							.col-12.col-lg-6
+								+b.field-file.field-line.__field-line
+									+b('span').field._form.__path Изображение
+									+b('label').btn._form(for='file-1') Обзор
+										input(id='file-1' type='file' accept='.png, .jpg, .jpeg' name='backgrounds[]')
+									+b('button').btn._form-clear(type='button' role='button')
+										img(src='./assets/images/icon_plus.png')
+						.grid.grid_gutters_all
+							.col-12
+								.wizard__skip
+									+b.switcher.js-wizard-skip
+										+e('input').true(type='checkbox' id='mod-look-ok' name='mod-look-ok')
+										+e('label').wrap(for='mod-look-ok')
+											+e('span').false(role='checkbox')
+											+b('p').accents._type-1 пропустить
+											p На усмотрение дизайнера
+				// +e('footer').panel-footer
+			+e.panel#tab-content(role='tabpanel')
+				+e('header').panel-header
+					+cap('Необходимый контент для сайта', 'Пожалуйста загрузите необходимый контент для вашего сайта')
+				+e.panel-content
+					.wizard__panel-content-inner
+						.grid.grid_gutters_no
+							.col-12.col-lg-6.col_order-last.col_order-lg-no
+								.grid.grid_gutters_all
+									.col-12
+										+b.field-file.field-line
+											+b('span').field._form.__path Название документа
+											+b('label').btn._form(for='content-file-1') Обзор
+												input(id='content-file-1' type='file' accept='.zip, .rar, .pdf, .doc' name='content[]')
+									.col-12
+										+b.field-file.field-line
+											+b('span').field._form.__path Название документа
+											+b('label').btn._form(for='content-file-2') Обзор
+												input(id='content-file-2' type='file' accept='.zip, .rar, .pdf, .doc' name='content[]')
+									.col-12
+										p Поддерживаемые форматы zip rar pdf doc
+									.col-12
+										+switcher(checked)
+											+b('p').accents._type-2_rich Логотипа нет.
+												br
+												| Создать новый, или переработать существующий
+							.col-12.col-lg-1(style="padding-top:10px; text-align:center;")
+								+b('button').btn._form-clear#add-content-field
+									img(src='./assets/images/icon_plus.png')
+							.col-12.col-lg-5.col_order-first.col_order-lg-no
+								p(style='margin-bottom: 10px; font-size: 16px; color: #7f7f7f; font-style: italic;') Внимание! Убедительная просьба загруждайте контент в структурированном виде, сохраняя иерархию страниц, вложенность и указываете для какой именно страницы контент. Изображения добавляйте с названием и т.д.
+								div(style='height: 300px; background-color: #b2b2b2')
+				// +e('footer').panel-footer
+			+e.panel(role='tabpanel')
+				+e('header').panel-header
+					+cap('Информация для связи', 'Пожалуйста загрузите необходимый контент для вашего сайта')
+				+e.panel-content
+					+e.grid.grid_gutters_all
+						.col-12
+							+b('span').capt-shadow._type-1 контактная информация
+						.col-12.col-sm-6.col-lg-2
+							+field('Пол')._form
+						.col-12.col-sm-6.col-6
+							+field('Имя')._form
+						.col-12.col-sm-6.col-6
+							+field('Телефон')._form
+						.col-12.col-sm-6.col-6
+							+field('E-mail')._form
+						.col-12.col-sm-6.col-12
+							+switcher()(checked)
+								+b('span').accents._type-2_rich Не против созваниться для обсуждения деталей
+
+					+e.grid.grid_gutters_all
+						.col-12
+							+b('span').capt-shadow._type-1 Прочие коментарии
+						.col-12
+							+field('Краткое описание', 'textarea')._form._form-area
+
+					+e.grid.grid_gutters_all
+						.col-12
+							+b('span').capt-shadow._type-1 Юридическая информация
+						.col-12.col-lg-7
+							+field('Краткое описание')._form
+						.col-12.col-sm-6.col-6
+							+field('Телефон')._form
+						.col-12.col-sm-6.col-6
+							+field('E-mail')._form
+						.col-12
+							+switcher()(checked)
+								+b('span').accents._type-2_rich Не против созваниться для обсуждения деталей
+				// +e('footer').panel-footer

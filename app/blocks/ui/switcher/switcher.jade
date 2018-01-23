@@ -1,0 +1,10 @@
+mixin switcher(labelVal, typeVal, nameVal, idVal, mainClasses)
+	- typeVal = typeVal || 'checkbox'
+	- idVal = idVal || 'id__' + Math.random()
+
+	+b.switcher(class=mainClasses)
+		+e('input').true(type=typeVal id=idVal name=nameVal)&attributes(attributes)
+		+e('label').wrap(for=idVal)
+			+e('span').false(role='checkbox')
+			!=labelVal
+			block

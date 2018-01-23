@@ -1,0 +1,59 @@
+.modal-form
+  padding 45px
+  max-width 540px
+  text-align left
+  background #fff
+  box-shadow 0 10px 59px alpha(#7bc7f7, 39%)
+
+  &_is-message
+    padding 50px 30px
+
+  &__header
+    margin-bottom 30px
+
+  &__footer
+    margin-top 30px
+    text-align center
+
+  &__cap-wrap
+    margin -10px
+    display flex
+    align-items center
+
+    &-item
+      margin 10px
+
+  &__title
+    display block
+    &_lg
+    span
+      font-size 30px
+
+  &__subtitle
+    margin-top 10px
+    display block
+    font-size 16px
+    text-transform uppercase
+
+  &__image
+    max-width 100%
+    max-height 100%
+
+
++media($breakpoints[xs], 'max')
+  .modal-form
+    padding 15px
+
+    &__footer
+      margin-top 0
+
+    &__cap-wrap
+      margin-bottom 0
+      display block
+      text-align center
+
+    &__title
+      display block
+      &_lg
+      span
+        font-size 26px

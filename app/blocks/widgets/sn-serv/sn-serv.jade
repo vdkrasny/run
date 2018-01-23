@@ -1,0 +1,20 @@
+mixin sn-serv()
+	+b.sn-serv&attributes(attributes)
+		.container
+			+cap('дополнительные услуги').section__wrap-cap
+			+e.grid.grid_gutters_all
+				- var cardsInfo = getData('serv-cards');
+					each item in cardsInfo
+						.col-12.col-xs-6.col-md-4.col-lg-3
+							+b.card
+								+e.image-wrap
+									+e('img').image(src=item.imageSrc)
+								+e.content._stretch
+									+b('span').capt-shadow.__title!=item.title
+									+b.timer
+										+e.title от
+											+e('span').inc 5
+											| дней
+										+e('p').desc время разработки сайта
+			.section__controls
+				+btn('заказать дополнительную услугу')._primary._size_sm.section__btn

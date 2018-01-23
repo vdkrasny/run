@@ -1,0 +1,14 @@
+.container
+	margin-x auto
+	padding-x 8px
+	width 97%
+
+.container-fluid
+	margin-x auto
+	width 100%
+
+for key, value in $breakpoints
+	if $container-size[key] != 0
+		+media(value)
+			.container
+				max-width $container-size[key]

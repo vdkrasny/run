@@ -1,0 +1,21 @@
+include /../node_modules/bemto.jade/bemto
+include /../node_modules/jade-injected/jade-injected
+
+include ../../includs
+
+doctype html
+html(lang='ru')
+	include ../head
+	link(href='./assets/styles/animate.css' rel='stylesheet')
+	link(href='./assets/styles/app.min.css' rel='stylesheet')
+	block	stylesheet
+
+	body
+		block content
+
+		block fixed
+
+		include ../include-scripts
+		block script
+
+		+scripts(['init.js'])

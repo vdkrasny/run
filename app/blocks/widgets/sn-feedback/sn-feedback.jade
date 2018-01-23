@@ -1,0 +1,21 @@
+mixin sn-feedback()
+	+b.sn-feedback&attributes(attributes)
+		+e.container.container
+			+b.greeting.__greeting
+				+b('h1').capt._h1.__title
+					+b('span').accents._type-1 подписаться
+					br
+					+b('span').accents._type-2 на наши новости
+				+e('p').subtitle Оставьте нам сообщение и мы свяжемся с вами
+			+e('form').form
+				.grid.grid_gutters_all
+					.col-sm-12.col-md-4
+						+field('Ваше имя')._primary(required)
+					.col-sm-12.col-md-4
+						+field('Ваш E-mail')._primary(type='email' required)
+					.col-sm-12.col-md-4
+						+field('Телефон')._primary(required)
+				+e.form-controls
+					+btn('Отправить')._primary.__form-btn
+			block
+		+b.bg-bubbles.__bg-bubbles

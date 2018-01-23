@@ -1,0 +1,15 @@
+mixin navigation()
+	+b.navigation&attributes(attributes)
+		+e.wrap
+			+e.links-wrap
+				+e('a').link(href='#start') Главная
+				+e('a').link(href='#advant') Преимущества
+				+e('a').link(href='#mobile') Мобильная версия
+				+e('a').link(href='#gallery') Портфолио
+				+e('a').link(href='#tariff') Пакеты
+				+e('a').link(href='#types') Виды сайтов
+				+e('a').link(href='#serv') Дополнительные услуги
+				+e('a').link(href='#clients') Наши клиенты
+				+e('a').link(href='#rewiev') Отзывы
+				+e('a').link(href='#feedback') Контакты
+		block

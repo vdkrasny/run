@@ -1,0 +1,38 @@
+.section
+  padding-y 100px
+
+  &__wrap-cap
+    padding-bottom 100px
+    text-align center
+
+  &__controls
+    padding-top 90px
+    text-align center
+
+  &__btn
+    min-width 400px
+
++media($breakpoints[xl], 'max')
+  .section
+    padding-y 60px
+
+    &__wrap-cap
+      padding-bottom 60px
+
+    &__controls
+      padding-top 60px
+
++media($breakpoints[md], 'max')
+  .section
+    padding-y 35px
+
+    &__wrap-cap
+      padding-bottom 35px
+
+    &__controls
+      padding-top 35px
+
++media($breakpoints[sm], 'max')
+  .section
+    &__btn
+      min-width inherit

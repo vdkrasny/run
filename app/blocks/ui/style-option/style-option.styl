@@ -1,0 +1,56 @@
+.style-option
+  font-weight bold
+  text-align center
+  text-transform uppercase
+  cursor pointer
+  &:hover
+  &.is-checked
+
+    .style-option
+      &__image-wrap
+        border-width 5px
+
+      &__hidden
+        opacity 1
+
+      &__image
+        transform translate(-50%, -50%) scale(1.1)
+
+  &__image-wrap
+    position relative
+    margin-bottom 35px
+    display block
+    overflow hidden
+    height 204px
+    border 0 solid $color-accent3
+    box-shadow 0 10px 59px alpha(#7bc7f7, 39%)
+    transition .2s
+    transition-property border
+    &:before
+      position-center(-1)
+      display block
+      width 100%
+      height 100%
+      content ''
+      box-shadow 0 10px 60px rgba(123, 199, 247, .3)
+
+  &__image
+    position absolute
+    top 50%
+    left 50%
+    display inline-block
+    min-width 100%
+    cursor pointer
+    transform translate(-50%, -50%)
+    transition transform 4s cubic-bezier(.18, .89, .32, 1.28)
+
+  &__name
+    display block
+    font-size 24px
+
+  &__hidden
+    display block
+    font-size 14px
+    color $color-accent3
+    opacity 0
+    transition .4s

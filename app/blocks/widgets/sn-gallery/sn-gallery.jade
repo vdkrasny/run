@@ -1,0 +1,38 @@
+mixin sn-gallery()
+	+b.sn-gallery&attributes(attributes)
+		.container-fluid
+			+e.grid.grid
+				.col-12.col-md-5.col-xl-6
+					+e.grid.grid
+						.col-4.hidden-after-xl
+							+e.grid.grid
+								- for (var i = 1; i < 3; i++)
+									.col-12
+										+e.image-wrap
+											+e('img').image.lazyload(data-src='./assets/images/gallery/mockup' + i + '.jpg')
+						.col-12.col-xl-8
+							+e.content(style="background-image: url(./assets/images/gallery/main.jpg);")
+								+e.wrap
+									+b('span').capt._h5.accents__._type-1.__label Варианты стилей
+									+b.capt._h2.__title Создаем
+										br
+										| современные
+										br
+										| качественные
+										br
+										| сайты за 5 дней
+								+e.controls
+									+btn('смотреть все работы', 'a')._primary.__btn
+				.col-12.col-md-7.col-xl-6
+					+e.grid.grid
+						.col-4.hidden-after-xl
+							+e.image-wrap
+								+e('img').image.lazyload(data-src='./assets/images/gallery/mockup3.jpg')
+						.col-4.hidden-after-xl
+							+e.image-wrap
+								+e('img').image.lazyload(data-src='./assets/images/gallery/mockup4.jpg')
+						- for (var i = 5; i < 9; i++)
+							.col-12.col-xs-6.col-xl-4
+								+e.image-wrap
+									+e('img').image.lazyload(data-src='./assets/images/gallery/mockup' + i + '.jpg')
+

@@ -1,0 +1,14 @@
+mixin sn-advant()
+	+b.sn-advant&attributes(attributes)
+		.container
+			+cap('преимущества').section__wrap-cap
+			+e.grid.grid
+				- var cardsInfo = getData('advant-cards');
+					each item in cardsInfo
+						.col-xs-6.col-md-4.col-xl-3
+							+b.card
+								+e.image-wrap
+									+e('img').image(src=item.imageSrc)
+								+e.content
+									+b('span').capt-shadow.__title!=item.title
+									p!=item.text

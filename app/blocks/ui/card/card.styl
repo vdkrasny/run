@@ -1,0 +1,54 @@
+.card
+	position relative
+	z-index 1
+	padding 30px
+	height 100%
+	background-color #ffffff
+	background-image url(../images/card-icons/bg.png)
+	background-repeat no-repeat
+	background-position 60% 35px
+	&:before
+		margin auto
+		position-center(-1)
+		display block
+		width 100%
+		height 100%
+		content ''
+		box-shadow 0 10px 60px alpha(#7bc7f7, 30%)
+		transition transform .5s
+
+	&_control
+		cursor pointer
+		transition .2s
+		transition-property box-shadow
+		&:hover
+		&.is-checked
+			box-shadow inset 0 0 0 5px $color-accent3_rich
+		&.is-checked
+			&:before
+				content none
+
+	&__image-wrap
+		margin-bottom 15px
+		display flex
+		height 92px
+		min-height 92px
+		text-align center
+
+	&__content
+		display block
+
+	&__list
+		margin 35px -25px 30px
+
+	&__image
+		margin auto
+		max-width 100%
+		max-height 100%
+
+	&__title
+		margin-bottom 25px
+		min-height 52px
+
+	&__btn
+		min-width 100%

@@ -1,0 +1,24 @@
+.bg-bubbles
+  position absolute
+  z-index 1
+  top 0
+  right 0
+  left 0
+  overflow hidden
+  width 100%
+  height 1290px
+  pointer-events none
+  &:before
+    position absolute
+    top 0
+    left 50%
+    display block
+    width 2964px
+    height 100%
+    content ''
+    background url(../images/bg_section.png) no-repeat center
+    transform translateX(-50%)
+
++media($breakpoints[xl], 'max')
+  .bg-bubbles
+    display none

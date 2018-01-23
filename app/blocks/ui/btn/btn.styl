@@ -1,0 +1,107 @@
+.btn
+  padding 0
+  display inline-block
+  overflow visible
+  font-family $font-family_eurofurence
+  font-size 20px
+  font-weight bold
+  line-height 1
+  text-align center
+  vertical-align middle
+  white-space nowrap
+  text-decoration none
+  text-transform uppercase
+  cursor pointer
+  user-select none
+  color inherit
+  background none
+  border none
+  transition .4s cubic-bezier(.22, .61, .36, 1)
+  transition-property color, background
+
+  &:disabled
+  &.disabled
+    color #8a8887
+    background #d7d8d8
+    background linear-gradient(to bottom, #d7d8d8 0, #c9c9c9 100%)
+    &:hover
+    &:focus
+      background #d7d8d8
+      background linear-gradient(to bottom, #d7d8d8 0, #c9c9c9 100%)
+    .btn__icon
+      filter grayscale(100%)
+      opacity .6
+
+  &_primary
+    min-width 280px
+    line-height 83px
+    color $color-accent1_dark
+    background $color-accent1
+    background linear-gradient(to bottom, $color-accent1 0, $color-accent1_dark-50 100%)
+    border-radius @line-height
+    &:hover
+    &:focus
+      background $color-accent1_dark-50
+      background linear-gradient(to top, $color-accent1 0, $color-accent1_dark-50 100%)
+
+  &_form
+    min-width 120px
+    font-size 16px
+    font-weight normal
+    line-height 60px
+    text-transform none
+    color #fff
+    background-color $color-accent2_rich
+    border-radius 4px
+    &:hover
+    &:focus
+      background-color saturation($color-accent2_rich, 60%)
+
+    &-clear
+      min-width 60px
+      font-size 16px
+      line-height 58px
+
+  &_size
+    &_sm
+      font-size 14px
+      line-height 63px
+      border-radius @line-height
+
+  &__label
+    padding-x 24px
+    overflow hidden
+    max-width 100%
+    vertical-align middle
+    white-space nowrap
+    text-overflow ellipsis
+    color inherit
+
+  &__icon
+    vertical-align middle
+
+
++media($breakpoints[xs], 'max')
+  .btn
+    font-size 16px
+
+    &_primary
+      min-width inherit
+      line-height 53px
+
+    &_form
+      min-width 75px
+      line-height 50px
+      text-transform none
+
+      &-clear
+        line-height 50px
+
+    &_size
+      &_sm
+        font-size 14px
+        line-height 43px
+        border-radius @line-height
+
+    &__label
+      padding-x 15px

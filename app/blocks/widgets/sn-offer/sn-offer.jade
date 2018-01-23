@@ -1,0 +1,17 @@
+mixin sn-offer()
+	+b.sn-offer&attributes(attributes)
+		.container
+			+e.content
+				+e.grid.grid
+					.col-12.col-xl-7
+						+e.price-wrap
+							+e.title
+								+b('span').accents._type-3 Express сайт
+								p всего за
+							+b('span').accents._type-1.__price 399 #[span €]
+					.col-12.col-xl-5
+						+e.advant
+							+b('span').capt._h3.__time сайт за #[span 5] дней
+							+b('span').capt._h5.accents__._type-3 наше преимущство
+							+btn('Попробуй прямо сейчас')._primary.__btn
+				+e('img').image(src='./assets/images/img_offer.png')

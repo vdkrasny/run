@@ -1,0 +1,5 @@
+mixin field(plh, tag)
+	- tag = tag || 'input'
+	- (tag === 'input' && attributes.type === '') ? attributes.type == 'text' : attributes.type
+	+b(tag).field&attributes(attributes)(placeholder=plh)
+		block

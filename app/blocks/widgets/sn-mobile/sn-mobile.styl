@@ -1,0 +1,92 @@
+.sn-mobile
+	margin-top -100px
+	padding-top 0
+	display block
+	overflow hidden
+	background url(../images/bg_sn-mobile.jpg) no-repeat center bottom
+
+	&__container
+		position relative
+		min-height 651px
+
+	&__title
+		margin 0 55px
+		margin-bottom 30px
+		font-weight bold
+		text-transform uppercase
+		color $color-accent2
+
+	&__wrap
+		margin-left 145px
+		padding-top 185px
+		width 70%
+
+	&__content
+		padding 45px 60px
+		padding-right 220px
+		min-height 250px
+		background-color #ffffff
+		box-shadow 0 10px 59px alpha(#7bc7f7, 39%)
+
+	&__image
+		position absolute
+		right -30px
+		bottom -100px
+		user-select none
+		pointer-events none
+
++media($breakpoints[lg], 'max')
+	.sn-mobile
+		margin-top -60px
+		&__wrap
+			margin-left 0
+			padding-top 130px
+			width 75%
+
+		&__content
+			padding-right 60px
+
+		&__image
+			right -17%
+
++media($breakpoints[md], 'max')
+	.sn-mobile
+		margin-top -35px
+
+		&__container
+			min-height 600px
+
+		&__wrap
+			padding-top 60px
+			width 90%
+
+		&__content
+			padding-right 60px
+
+		&__image
+			right -45%
+
++media($breakpoints[sm], 'max')
+	.sn-mobile
+		margin-top 0
+		padding-top 35px
+		background-size cover
+
+		&__title
+			margin-x 0
+			text-align center
+
+		&__container
+			min-height inherit
+
+		&__wrap
+			padding-top 0
+			width 100%
+
+		&__image
+			display none
+
++media($breakpoints[xs], 'max')
+	.sn-mobile
+		&__content
+			padding 30px

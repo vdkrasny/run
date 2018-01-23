@@ -1,0 +1,47 @@
+.sn-about
+	overflow hidden
+	&__we
+		margin-bottom 60px
+		color $color-accent3
+
+	&__title
+		margin-bottom 60px
+		font-size 42px
+
+	&__text
+		width 88%
+
+	&__video-bg
+		position absolute
+		top 35px
+		right -125px
+		display block
+		width 853px
+		height 587px
+		pointer-events none
+		background-image url(../images/img_video-wrap.png)
+		background-repeat no-repeat
+		background-position right
+		&-screen
+			position absolute
+			top 25px
+			left 175px
+			width 517px
+			height 390px
+			pointer-events auto
+
++media($breakpoints[lg], 'max')
+	.sn-about
+		&__text
+			width auto
+
+		&__video-bg
+			position relative
+			top auto
+			right auto
+			margin auto
+
++media($breakpoints[sm], 'max')
+	.sn-about
+		&__video-bg
+			display none

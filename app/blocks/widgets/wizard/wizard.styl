@@ -1,0 +1,262 @@
+.wizard
+  padding 45px
+  display flex
+  width 1400px
+  min-height 915px
+  text-align left
+  background #fff
+  box-shadow 0 11px 163px alpha(#086e99, 47%)
+
+  &__steps
+    position relative
+    margin-right 45px
+    min-width 310px
+
+    &-track
+      position absolute
+      top 0
+      left 0
+      width 8px
+      height 100%
+      user-select none
+      background-color #eee
+      border-radius 4px
+
+      &-thumb
+        position absolute
+        top 0
+        width 100%
+        height calc(((73px + 25px) * 1) + (108px + 65px))
+        background-color $color-accent2_rich
+        border-radius 4px
+        transition .6s cubic-bezier(.55, .06, .68, .19)
+        transition-property height
+        &:after
+          position absolute
+          left 100%
+          bottom calc(108px / 2 - 9px)
+          width 0
+          height 0
+          content ''
+          border-width 9px 0 9px 9px
+          border-style solid
+          border-color transparent
+          border-left-color $color-accent2_rich
+
+  &__tab
+    margin-top 25px
+    padding 10px
+    padding-left 60px
+    display flex
+    align-items center
+    text-transform uppercase
+    font-weight bold
+    cursor pointer
+    color #d8d8d8
+    transition .3s
+    transition-property margin
+    &:hover.done
+      .wizard__tab
+        &-name
+          color $color-accent3_rich
+          border-bottom-color $color-accent3_rich
+
+    &-content
+      flex-grow 1
+
+    &-label
+      display none
+      opacity 0
+      transition .3s
+      transition-property opacity
+
+    &-image
+      margin-right 35px
+      display inline-block
+
+    &-name
+      margin 15px 0
+      display inline-block
+      border-bottom 2px dotted transparent
+      transition .3s
+      transition-property color, border
+
+    &.is-active
+      margin-top 65px
+      &:first-child
+        margin-top 25px
+
+      .wizard__tab
+        &-label
+          display block
+          opacity 1
+
+        &-name
+          color $color-primary
+          border-bottom-color transparent
+
+  &__content
+    display flex
+    flex-direction column
+    justify-content space-between
+    width 100%
+    min-width 860px
+
+  &__panel
+    display none
+    flex-direction column
+    justify-content space-between
+    width 100%
+    height 100%
+
+    &.is-active
+      display flex
+
+    &-header
+      margin-bottom 40px
+
+    &-content
+      padding 30px 15px
+      background-color #ffffff
+      box-shadow 0 10px 59px alpha(#7bc7f7, 39%)
+      & > * + *
+        margin-top 1em
+
+      &-scroll
+        height 560px
+
+      &-inner
+        padding 15px
+        & > * + *
+          margin-top 1em
+
+    &-footer
+      margin-top 40px
+
+  &__controls
+    margin-top 40px
+    display flex
+    justify-content space-between
+
+  &__skip
+    margin-y 15px
+    display flex
+    justify-content flex-end
+    font-size 16px
+    font-weight bold
+    text-transform uppercase
+
+    .accents
+      font-size 18px
+
+  &__hint-wrap
+    display flex
+    align-items center
+
+  &__hint-icon
+    position relative
+    margin 0 10px
+    display inline-block
+
+  &__grid-col-icon
+    align-self center
+    text-align center
+
++media($breakpoints[xl], 'max')
+  .wizard
+    padding 35px
+    width 100%
+
++media($breakpoints[lg], 'max')
+  .wizard
+
+    &__steps
+      margin-right 35px
+      min-width 250px
+
+    &__tab
+      margin-top 20px
+      padding-left 35px
+      &.is-active
+        margin-top 40px
+        &:first-child
+          margin-top 20px
+
+      &-image
+        margin-right 35px
+
+    &__content
+      min-width 600px
+
++media($breakpoints[md], 'max')
+  .wizard
+    display block
+
+    &__steps
+      position sticky
+      z-index 999
+      top 0
+      right 0
+      left 0
+      margin 0
+      display block
+      overflow-x auto
+      min-width inherit
+      text-align center
+      white-space nowrap
+      background #fff
+      webkit-overflow-scrolling touch
+
+      &-track
+        display none
+
+    &__tab
+      margin-top 0
+      padding 10px
+      display inline-block
+      vertical-align middle
+
+      &-image
+        margin-right 0
+
+      &-content
+        display none
+
+      &.done
+        background #00800021
+        border-radius 10px
+
+      &.is-active
+        margin-top 0
+
+        &:first-child
+          margin-top 0
+
+    &__content
+      display block
+      min-width inherit
+
+
++media($breakpoints[sm], 'max')
+  .wizard
+    &__controls
+      flex-direction column
+      & > *
+        flex-grow 1
+        margin-bottom 1em
+
++media($breakpoints[xs], 'max')
+  .wizard
+    padding 45px 20px 20px
+
+    &__steps
+      margin auto
+      min-width inherit
+      max-width 260px
+
+    &__panel-content
+      padding 10px
+
+    &__panel-header
+      margin-bottom 20px
+

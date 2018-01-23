@@ -1,0 +1,34 @@
+[
+  {
+    "imageSrc": "./assets/images/card-icons/serv-style.png",
+    "title": "разработка<br>фирменного стиля<br>и логотипа сайта"
+  },
+  {
+    "imageSrc": "./assets/images/card-icons/serv-media.png",
+    "title": "создание видео<br>и аудиоматериалов<br>для  на сайте"
+  },
+  {
+    "imageSrc": "./assets/images/card-icons/serv-seo.png",
+    "title": "Google Adwards<br>и СЕО-продвижение<br>сайта в сети"
+  },
+  {
+    "imageSrc": "./assets/images/card-icons/serv-social.png",
+    "title": "продвижение сайта<br>в социальных<br>сетях"
+  },
+  {
+    "imageSrc": "./assets/images/card-icons/serv-mobile.png",
+    "title": "разработка<br>мобильной версии<br>готового сайта"
+  },
+  {
+    "imageSrc": "./assets/images/card-icons/serv-lang.png",
+    "title": "дополнительые<br>разделы и языки<br>на готовый сайт"
+  },
+  {
+    "imageSrc": "./assets/images/card-icons/serv-brand.png",
+    "title": "пакет<br>брендинг"
+  },
+  {
+    "imageSrc": "./assets/images/card-icons/serv-brand.png",
+    "title": "пакет<br>брендинг"
+  }
+]

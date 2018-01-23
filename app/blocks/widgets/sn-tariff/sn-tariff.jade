@@ -1,0 +1,23 @@
+mixin sn-tariff()
+	+b.sn-tariff&attributes(attributes)
+		.container
+			+cap('Мы предлагаем вам четыре пакета услуг').section__wrap-cap
+			+e.grid.grid_gutters_all
+				- var cardsInfo = getData('tariff-cards');
+					each item in cardsInfo
+						.col-12.col-xs-6.col-md-3
+							+b.card
+								+e.image-wrap
+									+e('img').image(src=item.imageSrc)
+								+e.content
+									- (item.titleClass != '') ? a = ('capt-shadow' + item.titleClass) : a = ''
+									+b('span').capt-shadow.__title(class=a)!=item.title
+									+b.timer
+										+e.title от
+											+e('span').inc 5
+											| дней
+										+e('p').desc время разработки сайта
+								+b('ul').list-plus.__list
+									each i in item.list
+										+e('li').item!=i
+								+btn('оставить заявку')._primary._size_sm.__btn
