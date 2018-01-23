@@ -1,11 +1,10 @@
 import $ from 'jquery';
-import 'jquery-wizard';
 import './form-submit';
 import tabType from './tab-type';
 import tabStructure from './tab-structure';
 import tabLook from './tab-look';
 import tabContent from './tab-content';
-
+import 'jquery-wizard';
 const form = 'form.wizard';
 
 function wizardTrackPosition() {

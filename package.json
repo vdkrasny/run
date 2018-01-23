@@ -100,7 +100,6 @@
     "husky": "^0.11.9",
     "jade-get-data": "^1.0.0",
     "jade-injected": "^1.0.2",
-    "jquery": "^2.1.4",
     "jquery-wizard": "^0.4.4",
     "merge-stream": "^1.0.0",
     "node-notifier": "^4.3.1",
@@ -126,6 +125,7 @@
     "webpack-stream": "^3.1.0"
   },
   "dependencies": {
+    "jquery": "^2.2.4",
     "jquery-wizard": "^0.4.4",
     "spectrum-colorpicker": "^1.8.0"
   }
