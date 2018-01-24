@@ -5,7 +5,6 @@ const pageNameInput = element.find('#page-name');
 const newPageEntry = element.find('.wizard-structure__item.wizard-structure__new-name');
 const addPageButton = element.find('#add-page');
 const newPagesWrap = element.find('.scroll-space__wrap');
-const skipButton = element.find('.js-wizard-skip');
 
 const addPage = e => {
 	const newItem = newPageEntry.clone();
@@ -34,11 +33,7 @@ const handleInput = e => {
 	}
 };
 
-function init(wizard) {
-	skipButton.click(() => {
-		this.checked = true;
-		wizard.next();
-	});
+function init() {
 	addPageButton.hide();
 	newPageEntry.hide();
 	element.find('#add-page').click(addPage);

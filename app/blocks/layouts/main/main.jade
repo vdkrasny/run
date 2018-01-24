@@ -14,8 +14,5 @@ html(lang='ru')
 		block content
 
 		block fixed
-
-		include ../include-scripts
-		block script
-
-		+scripts(['init.js'])
+		include ../scripts/scripts
+		+scripts(['app.min.js', 'lazyload.min.js', 'wow.min.js', 'remodal.min.js', 'slick/slick.min.js', 'init.js'])

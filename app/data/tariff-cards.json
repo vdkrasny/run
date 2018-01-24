@@ -29,7 +29,7 @@
   },
   {
     "imageSrc": "./assets/images/card-icons/tariff-shop.png",
-    "title": "Пакет<br>Интернет-магазин",
+    "title": "Пакет<br>Каталог товаров",
     "titleClass": "_type-2",
     "list": [
       "Создание  лендинга",

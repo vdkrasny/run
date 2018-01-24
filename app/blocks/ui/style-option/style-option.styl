@@ -1,4 +1,8 @@
 .style-option
+  padding 10px
+  display block
+  flex-grow 1
+  width 20%
   font-weight bold
   text-align center
   text-transform uppercase
@@ -21,7 +25,7 @@
     margin-bottom 35px
     display block
     overflow hidden
-    height 204px
+    height 170px
     border 0 solid $color-accent3
     box-shadow 0 10px 59px alpha(#7bc7f7, 39%)
     transition .2s
@@ -54,3 +58,11 @@
     color $color-accent3
     opacity 0
     transition .4s
+
++media($breakpoints[lg], 'max')
+  .style-option
+    width 30%
+
++media($breakpoints[xs], 'max')
+  .style-option
+    width 100%

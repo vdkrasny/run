@@ -154,3 +154,4 @@ $(document).ready(function () {
 
 let images = document.querySelectorAll('.lazyload');
 new LazyLoad(images);
+new WOW().init();
