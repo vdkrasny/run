@@ -7,7 +7,8 @@ mixin footer()
 				p Разработка сайтов
 					br
 					| индивидуально под ваш проект
-			.col-12.col-lg-4
-				+link('#')._primary Юридическая
-					br
-					| информация
+			+e.col-12.col-lg-4
+				+e.link-wrap
+					+link('#')._primary Юридическая информация
+				+e.link-wrap
+					+link('#m2')._primary.__link Обратная Связь

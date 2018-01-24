@@ -23,10 +23,16 @@
 		transition-property box-shadow
 		&:hover
 		&.is-checked
-			box-shadow inset 0 0 0 5px $color-accent3_rich
+			box-shadow inset 0 0 0 5px $color-accent3
 		&.is-checked
 			&:before
 				content none
+
+	&_hover
+		&:hover
+			&:before
+				box-shadow 0 10px 60px #7bc7f7
+				transition-property box-shadow
 
 	&__image-wrap
 		margin-bottom 15px

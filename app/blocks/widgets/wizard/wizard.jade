@@ -64,21 +64,13 @@ mixin wizard()
 								img(src='./assets/images/icon_min.png').btn__icon
 					.wizard__panel-content-inner
 						+e.grid-add-form.grid_gutters_all
-							.col-12.col-lg-7
+							.col-12
 								+e.add-form
 									+b('span').capt-shadow._type-1.__add-form-title Другие страницы
 									+b.field-line
 										+field('Название страницы')._form(id='page-name')
 										+b('button').btn._form-clear#add-page(type='button' role='button')
 											img(src='./assets/images/icon_plus.png')
-							.col-12.col-lg-5
-								.wizard__skip
-									+b.switcher.js-wizard-skip
-										+e('input').true(type='checkbox' id='wizard-structure-skip' name='wizard-structure-skip')
-										+e('label').wrap(for='wizard-structure-skip')
-											+e('span').false(role='checkbox')
-											+b('p').accents._type-1 пропустить
-											p На усмотрение дизайнера
 				// +e('footer').panel-footer
 			+e.panel(role='tabpanel')
 				+e('header').panel-header
@@ -96,14 +88,23 @@ mixin wizard()
 							+field('Краткое описание', 'textarea')._form._form-area(name='site-description')
 					+e.grid._like.grid_gutters_all
 						.col-12
-							+b('span').capt-shadow._type-1 Сайты которые вам нравяться
-						- for (var i = 0; i < 3; i++)
+							+b('span').capt-shadow._type-1 Сайты которые вам нравятся
+						- for (var i = 0; i < 2; i++)
 							.col-12.col-lg-5
 								+field('Краткое описание')._form(name='like-site[]')
 							+e.grid-col-icon.col-1
 								img(src='./assets/images/icon_plus.png')
 							.col-11.col-lg-6
-								+field('Описание , чем нравиться сайт')._form(name='like-site-description[]')
+								+field('Описание, чем нравится сайт')._form(name='like-site-description[]')
+					+e.grid._like.grid_gutters_all
+						.col-12
+							+b('span').capt-shadow._type-1 Сайты которые вам не нравяться
+						.col-12.col-lg-5
+							+field('Краткое описание')._form(name='not-like-site[]')
+						+e.grid-col-icon.col-1
+							img(src='./assets/images/icon_plus.png')
+						.col-11.col-lg-6
+							+field('Описание, чем не нравится сайт')._form(name='not-like-site-description[]')
 					+e.grid._like.grid_gutters_all
 						.col-12
 							.wizard__hint-wrap
@@ -112,20 +113,19 @@ mixin wizard()
 									img(src='./assets/images/icon_info.png')
 									+e.message Все сложности - возьмем на себя. Благодаря высокой квалификации наших сотрудников и открытому подходу к каждому клиенту, легкость в управлении сайтом будет Вам гарантирована. Работая по всему Миру мы, вместе с Вами, расширим границы вашего рынка сбыта.
 						.col-12
-							+field('Краткое описание')._form(name='wishes')
+							+field('Примечания', 'textarea')._form._form-area(name='wishes')
 				// +e('footer').panel-footer
 			+e.panel#tab-look(role='tabpanel')
 				input#selected-style(type='hidden')
 				+e('header').panel-header
 					+cap('Стилистика сайта', 'Отметьте нужные вам странницы')
 					.grid.grid_gutters_all
-						- for (var i = 0; i < 4; i++)
-							.col-md-6.col-lg-3
-								+b.style-option(data-option=i)
-									+e.image-wrap
-										+e('img').image(src='http://irysh-sky.by/wp-content/uploads/2017/10/page__banner_about.jpg')
-									+e('span').name FLAT
-									+e('span').hidden live view
+						- for (var i = 0; i < 5; i++)
+							+b.style-option(data-option=i)
+								+e.image-wrap
+									+e('img').image(src='http://irysh-sky.by/wp-content/uploads/2017/10/page__banner_about.jpg')
+								+e('span').name FLAT
+								+e('span').hidden live view
 				+e.panel-content.wizard-look__
 					.wizard__panel-content-inner
 						.grid.grid_gutters_all
@@ -184,10 +184,11 @@ mixin wizard()
 									.col-12
 										p Поддерживаемые форматы zip rar pdf doc
 									.col-12
-										+switcher(checked)
+										+switcher('', 'checkbox', 'no-logo-checkbox', '#no-logo-checkbox')(checked)
 											+b('p').accents._type-2_rich Логотипа нет.
 												br
 												| Создать новый, или переработать существующий
+											+b('span').accents._type-3(style='display: block;') +200 Euro
 							.col-12.col-lg-1(style="padding-top:10px; text-align:center;")
 								+b('button').btn._form-clear#add-content-field
 									img(src='./assets/images/icon_plus.png')
@@ -203,33 +204,40 @@ mixin wizard()
 						.col-12
 							+b('span').capt-shadow._type-1 контактная информация
 						.col-12.col-sm-6.col-lg-2
-							+field('Пол')._form
+							+b.field._form._select
+								select
+									option(selected) Пол
+									option Мужской
+									option Женский
 						.col-12.col-sm-6.col-6
+							+field('Имя')._form(required)
+						.col-12.col-sm-6.col-6
+							+field('Телефон')._form(required)
+						.col-12.col-sm-6.col-6
+							+field('E-mail')._form(required)
+						.col-12.col-sm-6.col-12
+							+switcher()(checked)
+								+b('span').accents._type-2_rich Не против созваниться для обсуждения деталей
+					+e.grid.grid_gutters_all
+						.col-12
+							+b('span').capt-shadow._type-1 Юридическая информация
+						.col-12.col-lg-6
 							+field('Имя')._form
+						.col-12.col-lg-6
+							+field('Фамилия или Название Фирмы')._form
+						.col-12.col-lg-6
+							+field('Юридический адрес')._form
+						.col-12.col-lg-6
+							+field('ИНН')._form
 						.col-12.col-sm-6.col-6
 							+field('Телефон')._form
 						.col-12.col-sm-6.col-6
 							+field('E-mail')._form
-						.col-12.col-sm-6.col-12
-							+switcher()(checked)
-								+b('span').accents._type-2_rich Не против созваниться для обсуждения деталей
-
+						.col-12
+							+field('Дополнительные данные', 'textarea')._form
 					+e.grid.grid_gutters_all
 						.col-12
 							+b('span').capt-shadow._type-1 Прочие коментарии
 						.col-12
-							+field('Краткое описание', 'textarea')._form._form-area
-
-					+e.grid.grid_gutters_all
-						.col-12
-							+b('span').capt-shadow._type-1 Юридическая информация
-						.col-12.col-lg-7
-							+field('Краткое описание')._form
-						.col-12.col-sm-6.col-6
-							+field('Телефон')._form
-						.col-12.col-sm-6.col-6
-							+field('E-mail')._form
-						.col-12
-							+switcher()(checked)
-								+b('span').accents._type-2_rich Не против созваниться для обсуждения деталей
+							+field('Краткое описание', 'textarea')._form
 				// +e('footer').panel-footer
