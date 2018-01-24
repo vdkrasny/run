@@ -20,7 +20,7 @@ mixin wizard()
 					- var cardsWizard = getData('modal-cards');
 						each item in cardsWizard
 							.col-sm-6.col-lg-4
-								+b.card._control
+								+b.card._control(data-type=item.title)
 									+e.image-wrap
 										+e('img').image(src=item.imageSrc)
 									+e.content
@@ -205,16 +205,16 @@ mixin wizard()
 							+b('span').capt-shadow._type-1 контактная информация
 						.col-12.col-sm-6.col-lg-2
 							+b.field._form._select
-								select
-									option(selected) Пол
+								select.js-validate(name='gender')
+									option(selected) Пол*
 									option Мужской
 									option Женский
 						.col-12.col-sm-6.col-6
-							+field('Имя')._form(required)
+							+field('Имя*')._form.js-validate(required name='username')
 						.col-12.col-sm-6.col-6
-							+field('Телефон')._form(required)
+							+field('Телефон*')._form.js-validate(required name='phone')
 						.col-12.col-sm-6.col-6
-							+field('E-mail')._form(required)
+							+field('E-mail*')._form.js-validate(required name='email')
 						.col-12.col-sm-6.col-12
 							+switcher()(checked)
 								+b('span').accents._type-2_rich Не против созваниться для обсуждения деталей

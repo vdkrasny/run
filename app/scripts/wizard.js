@@ -17,7 +17,7 @@ function wizardTrackPosition() {
 	$('.wizard__steps-track-thumb').css({height: `${trackOffset}px`});
 }
 
-$(document).on('opening', '.remodal', wizardTrackPosition());
+$('.remodal').on('opened', wizardTrackPosition);
 
 export default {
 	init() {

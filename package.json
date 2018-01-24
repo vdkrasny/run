@@ -126,6 +126,7 @@
   },
   "dependencies": {
     "jquery": "^2.2.4",
+    "jquery-validation": "^1.17.0",
     "jquery-wizard": "^0.4.4",
     "spectrum-colorpicker": "^1.8.0"
   }

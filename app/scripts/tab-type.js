@@ -9,7 +9,8 @@ function handleClick() {
 	const type = that.data('type');
 
 	siteType.val(type);
-	that.toggleClass('is-checked');
+	cards.removeClass('is-checked');
+	that.addClass('is-checked');
 	$('[data-parent]').parents('.wizard-structure__item').hide();
 	$('[data-parent]:checked').removeAttr('checked');
 	$(`[data-parent="${type}"]`).parents('.wizard-structure__item').show();
