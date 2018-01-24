@@ -58,11 +58,17 @@ $parent-class = 'switcher'
           opacity 1
           transform scale(1)
 
+      .{$parent-class}__item
+        display block
+
     &:not(:checked) + .{$parent-class}__wrap
       .{$parent-class}__false
         &:before
           opacity 0
           transform scale(0)
+
+      .{$parent-class}__item
+        display none
 
     &:disabled + .{$parent-class}__wrap
       cursor default

@@ -184,11 +184,14 @@ mixin wizard()
 									.col-12
 										p Поддерживаемые форматы zip rar pdf doc
 									.col-12
-										+switcher('', 'checkbox', 'no-logo-checkbox', '#no-logo-checkbox')(checked)
-											+b('p').accents._type-2_rich Логотипа нет.
-												br
-												| Создать новый, или переработать существующий
-											+b('span').accents._type-3(style='display: block;') +200 Euro
+										+b.switcher(class=mainClasses)
+											+e('input')#no-logo-checkbox.true(type='checkbox' name='no-logo-checkbox')
+											+e('label').wrap(for='no-logo-checkbox')
+												+e('span').false(role='checkbox')
+												+b('p').accents._type-2_rich Логотипа нет.
+													br
+													| Создать новый, или переработать существующий
+												+e('span').item.accents__._type-3 +200 Euro
 							.col-12.col-lg-1(style="padding-top:10px; text-align:center;")
 								+b('button').btn._form-clear#add-content-field
 									img(src='./assets/images/icon_plus.png')

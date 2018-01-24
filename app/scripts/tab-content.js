@@ -4,7 +4,6 @@ const element = $('#tab-content');
 const origin = element.find('.field-file').eq(0).clone();
 const target = element.find('.field-file').parents('.grid').eq(0);
 const addBtn = element.find('#add-content-field');
-const noLogoCheck = element.find('#no-logo-checkbox');
 let count = element.find('.field-file').length;
 
 const hidden = {
@@ -45,18 +44,9 @@ const addField = () => {
 	target.append(wrap);
 };
 
-const addLogoPrice = () => {
-	if (noLogoCheck.prop('checked')) {
-		noLogoCheck.siblings('.switcher__wrap').find('span').show();
-	}else {
-		noLogoCheck.siblings('.switcher__wrap').find('span').hide();
-	}
-};
-
 function init() {
 	element.find('.field-file').each((_, elt) => fdInit(elt));
 	addBtn.click(addField);
-	noLogoCheck.click(addLogoPrice);
 }
 
 export default {
