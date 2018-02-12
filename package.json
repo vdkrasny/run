@@ -128,6 +128,10 @@
     "jquery": "^2.2.4",
     "jquery-validation": "^1.17.0",
     "jquery-wizard": "^0.4.4",
-    "spectrum-colorpicker": "^1.8.0"
+    "lazyload": "^2.0.0-beta.2",
+    "remodal": "^1.1.1",
+    "slick-carousel": "^1.8.1",
+    "spectrum-colorpicker": "^1.8.0",
+    "wowjs": "^1.1.3"
   }
 }

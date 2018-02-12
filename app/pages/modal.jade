@@ -1,0 +1,197 @@
+extends ../blocks/layouts/main/main
+
+block head
+	- var pageTitle = 'Модальные окна';
+
+block fixed
+	+navigation
+
+	+remodal('m1')
+		+b.modal-form
+			+e.header
+				+e.cap-wrap
+					+e.cap-wrap-item
+						+b('span').capt-shadow.__title заказать звонок
+						+e('span').subtitle Оставьте ваши данные и мы свяжемся с вами
+			.grid.grid_gutters_all
+				.col-12
+					+field('Имя')._form
+				.col-12
+					+field('Телефон')._form
+			+e.footer
+				.grid.grid_gutters_all
+					.col-12
+						+b('p').accents._type-2_rich Мы гарантируем сохранность ваших данных
+					.col-12
+						+btn('заказать звонок')._primary._size_sm
+
+	+remodal('m2')
+		+b.modal-form
+			+e.header
+				+e.cap-wrap
+					+e.cap-wrap-item
+						+b('span').capt-shadow._type-1.__title Написать нам
+						+e('span').subtitle Оставьте ваши данные и мы ответим
+							br
+							| на ваш вопрос
+			.grid.grid_gutters_all
+				.col-12
+					+field('Имя')._form
+				.col-12
+					+field('Телефон')._form
+				.col-12
+					+field('E-mail')._form
+				.col-12
+					+field('Сообщение', 'textarea')._form._form-area
+			+e.footer
+				.grid.grid_gutters_all
+					.col-12
+						+b('p').accents._type-2_rich Мы гарантируем сохранность ваших данных
+					.col-12
+						+btn('заказать звонок')._primary._size_sm
+
+	+remodal('m3')
+		+b.modal-form
+			+e.header
+				+e.cap-wrap
+					+e.cap-wrap-item
+						+e('img').image(src='./assets/images/card-icons/advant-style.png')
+					+e.cap-wrap-item
+						+b('span').capt-shadow.__title заказать
+							br
+							| дополнительную услугу
+						+e('span').subtitle Оставьте ваши данные и мы ответим
+							br
+							| на ваш вопрос
+			.grid.grid_gutters_all
+				.col-12
+					+field('E-mail')._form
+				.col-12
+					+field('Сообщение', 'textarea')._form._form-area
+			+e.footer
+				.grid.grid_gutters_all
+					.col-12
+						+b('p').accents._type-2_rich Мы гарантируем сохранность ваших данных
+					.col-12
+						+btn('заказать звонок')._primary._size_sm
+
+	+remodal('m4')
+		+b.modal-form
+			+e.header
+				+e.cap-wrap
+					+e.cap-wrap-item
+						+e('img').image(src='./assets/images/card-icons/advant-style.png')
+					+e.cap-wrap-item
+						+b('span').capt-shadow.__title разработка фирменного стиля
+							br
+							| и логотипа сайта
+						+e('span').subtitle Оставьте ваши данные и мы ответим
+							br
+							| на ваш вопрос
+			.grid.grid_gutters_all
+				.col-12
+					+field('Имя')._form
+				.col-12
+					+field('Телефон')._form
+				.col-12
+					+field('E-mail')._form
+				.col-12
+					+field('Сообщение', 'textarea')._form._form-area
+			+e.footer
+				.grid.grid_gutters_all
+					.col-12
+						+b('p').accents._type-2_rich Мы гарантируем сохранность ваших данных
+					.col-12
+						+btn('заказать звонок')._primary._size_sm
+
+	+remodal('m5')
+		+b.modal-form
+			+e.header
+				+e.cap-wrap
+					+e.cap-wrap-item
+						+e('img').image(src='./assets/images/card-icons/tariff-standart.png')
+					+e.cap-wrap-item
+						+b('span').capt-shadow._type-1.__title Вы выбрали пакет
+							br
+							span стандарт
+						+e('span').subtitle Оставьте ваши данные и мы ответим
+							br
+							| на ваш вопрос
+			.grid.grid_gutters_all
+				.col-12
+					+field('Имя')._form
+				.col-12
+					+field('Телефон')._form
+				.col-12
+					+field('E-mail')._form
+				.col-12
+					+field('Сообщение', 'textarea')._form._form-area
+			+e.footer
+				.grid.grid_gutters_all
+					.col-12
+						+b('p').accents._type-2_rich Мы гарантируем сохранность ваших данных
+					.col-12
+						+btn('заказать звонок')._primary._size_sm
+
+	+remodal('m6')
+		+b.modal-form._is-page
+			+e.header
+				+cap('наши работы', 'Сдесь вы видите работы выполненые нами')
+			+b.sn-gallery
+				+e.grid.grid_gutters_all
+					- for (var i = 1; i < 9; i++)
+						.col-3
+							+e.image-wrap
+								+e('img').image.lazyload(data-src='./assets/images/gallery/mockup' + i + '.jpg')
+			+e.footer
+				.grid.grid_gutters_all
+					.col-12
+						+btn('ещё работы')._primary._size_sm
+
+	+remodal('msq1')._notice
+		+b.modal-form._is-message
+			+e.cap-wrap
+				+e.cap-wrap-item
+					+e('img').image(src='./assets/images/img_modal_message-ok.png')
+				+e.cap-wrap-item
+					+b('span').capt-shadow._type-1.__title._lg Вы сообщение
+						br
+						| успешно доставлено
+
+	+remodal('msq2')._notice
+		+b.modal-form._is-message
+			+e.cap-wrap
+				+e.cap-wrap-item
+					+e('img').image(src='./assets/images/img_modal_order-ok.png')
+				+e.cap-wrap-item
+					+b('span').capt-shadow._type-1.__title._lg Ваша заявка принята
+					+e('span').subtitle Спасибо за вашу заявку!
+
+	+remodal('msq3')._notice
+		+b.modal-form._is-message
+			+e.cap-wrap
+				+e.cap-wrap-item
+					+e('img').image(src='./assets/images/img_modal_subs-ok.png')
+				+e.cap-wrap-item
+					+b('span').capt-shadow._type-1.__title._lg Вы успешно подписаны
+						br
+						| на наши новости
+
+	+remodal('modal')
+		+wizard
+
+block content
+	.container
+		p
+			+btn('1', 'a', '#modal')
+		p
+			+btn('1', 'a', '#m1')
+			+btn('2', 'a', '#m2')
+			+btn('3', 'a', '#m3')
+			+btn('4', 'a', '#m4')
+			+btn('5', 'a', '#m5')
+			+btn('6', 'a', '#m6')
+		p
+			+btn('1', 'a', '#msq1')
+			+btn('2', 'a', '#msq2')
+			+btn('2', 'a', '#msq3')

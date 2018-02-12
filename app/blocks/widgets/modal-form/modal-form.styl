@@ -8,6 +8,12 @@
   &_is-message
     padding 50px 30px
 
+  &_is-page
+    padding 45px
+    width 1400px
+    max-width 1400px
+    box-shadow 0 11px 163px alpha(#086e99, 47%)
+
   &__header
     margin-bottom 30px
 
@@ -40,6 +46,13 @@
     max-height 100%
 
 
++media($breakpoints[xl], 'max')
+  .modal-form
+
+    &_is-page
+      padding 35px
+      width 95vw
+
 +media($breakpoints[xs], 'max')
   .modal-form
     padding 15px
@@ -54,6 +67,7 @@
 
     &__title
       display block
+
       &_lg
       span
         font-size 26px

@@ -118,7 +118,7 @@ mixin wizard()
 			+e.panel#tab-look(role='tabpanel')
 				input#selected-style(type='hidden')
 				+e('header').panel-header
-					+cap('Стилистика сайта', 'Отметьте нужные вам странницы')
+					+cap('Стилистика сайта', 'Отметьте нужную вам странницу')
 					.grid.grid_gutters_all
 						- for (var i = 0; i < 5; i++)
 							+b.style-option(data-option=i)
