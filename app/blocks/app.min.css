@@ -246,7 +246,9 @@ a { text-decoration: none; color: inherit }
 .card_control { cursor: pointer; transition: .2s; transition-property: box-shadow }
 .card_control.is-checked, .card_control:hover { box-shadow: inset 0 0 0 5px #d9123e }
 .card_control.is-checked:before { content: none }
-.card_hover:hover:before { /*box-shadow:0 10px 60px #7bc7f7;transition-property:box-shadow*/ }
+.card_hover { transition: .2s; transition-property: box-shadow }
+.card_hover:hover { box-shadow: inset 0 0 0 5px #d9123e }
+.card_hover:hover:before { box-shadow: 0 10px 60px #7bc7f7; transition-property: box-shadow }
 .card__image-wrap { margin-bottom: 15px; display: -ms-flexbox; display: flex; height: 92px; min-height: 92px; text-align: center }
 .card__content { display: block }
 .card__list { margin: 35px -25px 30px }
@@ -297,7 +299,7 @@ a { text-decoration: none; color: inherit }
 .list-plus__item:before { position: absolute; top: 50%; left: 9px; display: inline-block; font-family: Circe, sans-serif; font-size: 14px; font-weight: 700; line-height: 30px; content: "+"; color: #68ab28; transform: translateY(-50%) }
 .list-plus__item:nth-child(odd) { background-color: #f9f9f9 }
 .logo { position: relative; display: inline-block }
-/*.logo:hover .logo__image{transform:scale(.96)}*/
+.logo:hover .logo__image { transform: scale(.96) }
 .navigation-is-locked { overflow: hidden; -ms-touch-action: none; touch-action: none }
 .navigation { position: fixed; z-index: 99; top: 0; left: 0; display: none; width: 100%; height: 100%; background-color: hsla(0, 0%, 100%, .96) }
 .navigation__wrap { display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; height: 100% }
@@ -401,7 +403,7 @@ a { text-decoration: none; color: inherit }
 .switcher__true:disabled + .switcher__wrap .switcher__false { background-color: #e7e7e7 }
 .switcher__true:disabled + .switcher__wrap .switcher__false:before { filter: grayscale(100%) }
 .switcher__true:focus + .switcher__wrap .switcher__false { border-color: #fdc709 }
-.tagline { font-size: 18px }
+.tagline { font-size: 23px }
 .tagline span { color: #fdc709 }
 .timer { font-weight: 700; color: #d6e2e5 }
 .timer__title { display: block; font-size: 27px; line-height: 24px; text-transform: uppercase }
@@ -554,7 +556,7 @@ html.remodal-is-locked { overflow: hidden; -ms-touch-action: none; touch-action:
 .wizard-structure__add-form { display: block }
 .wizard-structure__add-form-title { margin-bottom: 45px }
 .wizard { padding: 45px; display: -ms-flexbox; display: flex; width: 1400px; min-height: 915px; text-align: left; background: #ffffff; box-shadow: 0 11px 163px rgba(8, 110, 153, .47) }
-.wizard__steps { position: relative; margin-right: 45px; overflow: hidden; min-width: 310px }
+.wizard__steps { position: relative; margin-right: 45px; display: block; overflow: hidden; min-width: 310px }
 .wizard__steps-track { left: 0; width: 8px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; background-color: #eeeeee }
 .wizard__steps-track, .wizard__steps-track-thumb { position: absolute; top: 0; height: 100%; border-radius: 4px }
 .wizard__steps-track-thumb { width: 100%; background-color: #2958fd; transition: .6s cubic-bezier(.55, .06, .68, .19); transition-property: height }
@@ -580,9 +582,10 @@ html.remodal-is-locked { overflow: hidden; -ms-touch-action: none; touch-action:
 .wizard__panel-content-inner { padding: 15px }
 .wizard__panel-content-inner > * + * { margin-top: 1em }
 .wizard__panel-footer { margin-top: 40px }
-.wizard__controls { margin-top: 40px; -ms-flex-pack: justify; justify-content: space-between }
-.wizard__controls, .wizard__skip { display: -ms-flexbox; display: flex }
-.wizard__skip { margin-top: 15px; margin-bottom: 15px; -ms-flex-pack: end; justify-content: flex-end; font-size: 16px; font-weight: 700; text-transform: uppercase }
+.wizard__controls { margin-top: 40px; display: -ms-flexbox; display: flex; -ms-flex-pack: justify; justify-content: space-between }
+.wizard__gif { display: block; height: 300px; background-color: #b2b2b2 }
+.wizard__gif-text { margin-bottom: 10px; padding: 6px; display: block; font-size: 16px; font-style: italic; color: #7f7f7f; border: 1px solid #d9123e }
+.wizard__skip { margin-top: 15px; margin-bottom: 15px; display: -ms-flexbox; display: flex; -ms-flex-pack: end; justify-content: flex-end; font-size: 16px; font-weight: 700; text-transform: uppercase }
 .wizard__skip .accents { font-size: 18px }
 .wizard__hint-wrap { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center }
 .wizard__hint-icon { position: relative; margin: 0 10px; display: inline-block }
@@ -808,17 +811,20 @@ html.remodal-is-locked { overflow: hidden; -ms-touch-action: none; touch-action:
 	.sn-rewiev { padding-top: 35px; padding-bottom: 35px }
 	.tabs__nav { margin-bottom: 30px }
 	.wizard { display: block }
-	.wizard__steps { position: -webkit-sticky; position: sticky; z-index: 999; top: 0; right: 0; left: 0; margin: 0; display: block; overflow-x: auto; min-width: inherit; text-align: center; white-space: nowrap; background: #ffffff; webkit-overflow-scrolling: touch }
+	.wizard__steps { position: -webkit-sticky; position: sticky; z-index: 999; top: 0; right: 0; left: 0; margin: 0; padding: 20px 0; display: -ms-flexbox; display: flex; overflow-x: auto; counter-reset: a; -ms-flex-align: center; align-items: center; -ms-flex-pack: center; justify-content: center; min-width: inherit; text-align: center; white-space: nowrap; background: #ffffff; webkit-overflow-scrolling: touch }
 	.wizard__steps-track { display: none }
-	.wizard__tab { margin-top: 0; padding: 10px; display: inline-block; vertical-align: middle }
-	.wizard__tab-image { margin-right: 0 }
+	.wizard__tab { margin: 0 6px; padding: 0; display: inline-block; width: 30px; line-height: 30px; vertical-align: middle; background-color: #f5f5f5; border-radius: 50% }
+	.wizard__tab:after { content: counter(a, decimal); counter-increment: a }
+	.wizard__tab-image { margin: 0; display: none }
 	.wizard__tab-content { display: none }
-	.wizard__tab.done { background: rgba(0, 128, 0, .129); border-radius: 10px }
-	.wizard__tab.is-active, .wizard__tab.is-active:first-child { margin-top: 0 }
+	.wizard__tab.done { position: relative; background: #deefde }
+	.wizard__tab.done:before { position: absolute; z-index: -1; top: 50%; left: 100%; margin-top: -1px; display: block; width: 100%; height: 2px; content: ""; background: #deefde }
+	.wizard__tab.is-active { margin-top: 0; color: #ffffff !important; background: #d9123e }
+	.wizard__tab.is-active:before { content: none }
+	.wizard__tab.is-active:first-child { margin-top: 0 }
 	.wizard__content { display: block; min-width: inherit }
 }
 @media only screen and (max-width: 767px) {
-	.modal-form__header { text-align: center }
 	.hidden-after-sm { display: none }
 	.btn-burger_fixed { top: 20px; right: 20px }
 	.capt_h1 { font-size: 42px }
@@ -832,6 +838,7 @@ html.remodal-is-locked { overflow: hidden; -ms-touch-action: none; touch-action:
 	.rewiev__image-wrap { min-width: 210px; max-width: 210px; height: 210px }
 	.section__btn { min-width: inherit }
 	.header { padding: 20px }
+	.modal-form__header { text-align: center }
 	.sn-about__video-bg { display: none }
 	.sn-mobile { margin-top: 0; padding-top: 35px; background-size: cover }
 	.sn-mobile__title { margin-left: 0; margin-right: 0; text-align: center }
@@ -846,6 +853,11 @@ html.remodal-is-locked { overflow: hidden; -ms-touch-action: none; touch-action:
 	.wizard__controls > * { -ms-flex-positive: 1; flex-grow: 1; margin-bottom: 1em }
 }
 @media only screen and (max-width: 575px) {
+	.sp-replacer { position: relative; pointer-events: none }
+	.sp-replacer:before { position: absolute; right: 0; width: 42px; height: 100%; pointer-events: auto; content: "" }
+	.sp-container { right: 0 !important; left: 0 !important; display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column }
+	.sp-palette, .sp-picker-container { margin: auto }
+	.sp-picker-container { width: 75% }
 	.hidden-after-xs { display: none }
 	.btn { font-size: 16px }
 	.btn_primary { min-width: inherit; line-height: 53px }
@@ -853,13 +865,16 @@ html.remodal-is-locked { overflow: hidden; -ms-touch-action: none; touch-action:
 	.btn_form, .btn_form-clear { line-height: 50px }
 	.btn_size_sm { font-size: 14px; line-height: 43px; border-radius: 43px }
 	.btn__label { padding-left: 15px; padding-right: 15px }
+	.card { padding: 18 }
+	.card__title { margin-bottom: 10px }
+	.card__image-wrap { height: 50px; min-height: 50px }
 	.field-file { -ms-flex-direction: column; flex-direction: column }
 	.field-file > * { width: 100% }
 	.field_primary { line-height: 23px }
 	.field_form { padding: 15px }
 	.style-option { width: 100% }
-	.tagline { font-size: 16px }
-	.modal-form { padding-left: 15px; padding-right: 15px; padding-bottom: 15px }
+	.tagline { font-size: 18px }
+	.modal-form { padding-right: 15px; padding-left: 15px; padding-bottom: 15px }
 	.modal-form__footer { margin-top: 0 }
 	.modal-form__cap-wrap { margin-bottom: 0; display: block; text-align: center }
 	.modal-form__title { display: block }
@@ -870,13 +885,14 @@ html.remodal-is-locked { overflow: hidden; -ms-touch-action: none; touch-action:
 	.sn-offer__price > span { font-size: 70px }
 	.sn-offer__time > span { font-size: 90px }
 	.sn-start__btn { min-width: inherit }
+	.tabs__switcher { margin: 0; padding: 8px 16px }
 	.wizard-look__field-line { -ms-flex-direction: column; flex-direction: column }
 	.wizard-look__field-line > * { width: 100% }
 	.wizard-structure__item { margin-bottom: 20px }
 	.wizard-structure__desc { margin-left: 0 }
 	.wizard-structure__new-name { padding-left: 0 }
-	.wizard { padding: 45px 20px 20px }
-	.wizard__steps { margin: auto; min-width: inherit; max-width: 260px }
+	.wizard { padding: 45px 14px 14px }
+	.wizard__steps { padding: 10px 0 }
 	.wizard__panel-content { padding: 10px }
 	.wizard__panel-header { margin-bottom: 20px }
 }
@@ -884,9 +900,6 @@ html.remodal-is-locked { overflow: hidden; -ms-touch-action: none; touch-action:
 	.sp-color { right: 40% }
 	.sp-hue { left: 63% }
 	.sp-fill { padding-top: 60% }
-}
-.show-all-wrapper {
-	display: none;
 }
 @media screen and (max-width: 480px) {
 	.header__wrap-end .btn-burger {
