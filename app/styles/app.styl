@@ -44,6 +44,32 @@ a
 .wow
   visibility hidden
 
++media($breakpoints[xs], 'max')
+  .sp-replacer
+    position relative
+    pointer-events none
+
+    &:before
+      position absolute
+      right 0
+      width 42px
+      height 100%
+      pointer-events auto
+      content ''
+
+  .sp-container
+    right 0 !important
+    left 0 !important
+    display flex
+    flex-direction column
+
+  .sp-palette,
+  .sp-picker-container
+    margin auto
+
+  .sp-picker-container
+    width 75%
+
 @import 'helpers/grid.styl'
 import('../blocks/ui/**/*')
 import('../blocks/widgets/**/*')

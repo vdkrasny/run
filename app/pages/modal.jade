@@ -140,7 +140,7 @@ block fixed
 			+b.sn-gallery
 				+e.grid.grid_gutters_all
 					- for (var i = 1; i < 9; i++)
-						.col-3
+						.col-12.col-sm-6.col-md-4.col-lg-3
 							+e.image-wrap
 								+e('img').image.lazyload(data-src='./assets/images/gallery/mockup' + i + '.jpg')
 			+e.footer
@@ -189,7 +189,7 @@ block content
 			+btn('2', 'a', '#m2')
 			+btn('3', 'a', '#m3')
 			+btn('4', 'a', '#m4')
-			+btn('5', 'a', '#m5')
+			+btn('Лендинг', 'a', '#modal').wizard-set-type(data-type="Лендинг")
 			+btn('6', 'a', '#m6')
 		p
 			+btn('1', 'a', '#msq1')

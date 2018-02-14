@@ -29,7 +29,10 @@
 				content none
 
 	&_hover
+		transition .2s
+		transition-property box-shadow
 		&:hover
+			box-shadow inset 0 0 0 5px $color-accent3
 			&:before
 				box-shadow 0 10px 60px #7bc7f7
 				transition-property box-shadow
@@ -58,3 +61,14 @@
 
 	&__btn
 		min-width 100%
+
++media($breakpoints[xs], 'max')
+	.card
+		padding 18
+
+		&__title
+			margin-bottom 10px
+
+		&__image-wrap
+			height 50px
+			min-height 50px

@@ -57,7 +57,6 @@ export default {
 			if (wizard.lastIndex() === wizard.currentIndex()) {
 				submit.show();
 				next.hide();
-				$('.wizard__steps-track-thumb').css({height: '100%'});
 			}
 			else {
 				if (submit.is(':visible')) {

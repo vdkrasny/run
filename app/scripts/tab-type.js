@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 const element = $('#tab-type');
 const cards = element.find('.card');
+const buttonSetType = $('.wizard-set-type');
 const siteType = $('#site-type');
 
 function handleClick() {
@@ -21,6 +22,12 @@ function init(wizard) {
 	cards.click(function (e) {
 		handleClick.call(this, e);
 		wizard.next();
+	});
+	buttonSetType.click(function (e) {
+		if (element.attr('aria-expanded') === 'true') {
+			handleClick.call(this, e);
+			wizard.next();
+		}
 	});
 }
 

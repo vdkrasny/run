@@ -53,9 +53,16 @@
       padding 35px
       width 95vw
 
++media($breakpoints[sm], 'max')
+  .modal-form
+    &__header
+      text-align center
+
 +media($breakpoints[xs], 'max')
   .modal-form
-    padding 15px
+    padding-right 15px
+    padding-left 15px
+    padding-bottom 15px
 
     &__footer
       margin-top 0

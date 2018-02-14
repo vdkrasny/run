@@ -74,9 +74,9 @@ function smartScrollTo(obj, offset, event) {
 
 function checkWidth() {
 	const $header = $('.header');
-	let headerWidthRight = $header.css('padding-right');
-	let headerHeight = $header.outerHeight();
-	let headerHeightCenter = (headerHeight - 45) / 2;
+	const headerWidthRight = $header.css('padding-right');
+	const headerHeight = $header.outerHeight();
+	const headerHeightCenter = (headerHeight - 45) / 2;
 	$mobileMenuControl.css({top: headerHeightCenter, right: headerWidthRight});
 	$mobileMenuWrap.css({paddingTop: headerHeight});
 }

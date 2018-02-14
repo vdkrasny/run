@@ -1,9 +1,9 @@
 mixin wizard()
 	+b('form').wizard(method='POST')&attributes(attributes)
-		+e.steps(role='tablist')
+		+e('ol').steps(role='tablist')
 			- var arr = [['type', '1', 'Тип сайта'], ['structure', '2', 'Структура сайта'], ['desc', '3', 'Описание'], ['look', '4', 'Внешний вид'], ['content', '5', 'Контент'], ['contacts', '6', 'Контакты']]
 				each i, idx in arr
-					+e.tab(role='tab' class=(idx === 0 ? 'is-active' : ''))
+					+e('li').tab(role='tab' class=(idx === 0 ? 'is-active' : ''))
 						+e('img').tab-image(src='./assets/images/modal-steps/' + i[0] + '.png')
 						+e.tab-content
 							+e.tab-label
@@ -176,7 +176,7 @@ mixin wizard()
 											+b('span').field._form.__path Название документа
 											+b('label').btn._form(for='content-file-1') Обзор
 												input(id='content-file-1' type='file' accept='.zip, .rar, .pdf, .doc' name='content[]')
-									.col-12
+									.col-12.paste-after
 										+b.field-file.field-line
 											+b('span').field._form.__path Название документа
 											+b('label').btn._form(for='content-file-2') Обзор
@@ -195,9 +195,9 @@ mixin wizard()
 							.col-12.col-lg-1(style="padding-top:10px; text-align:center;")
 								+b('button').btn._form-clear#add-content-field
 									img(src='./assets/images/icon_plus.png')
-							.col-12.col-lg-5.col_order-first.col_order-lg-no
-								p(style='margin-bottom: 10px; font-size: 16px; color: #7f7f7f; font-style: italic;') Внимание! Убедительная просьба загруждайте контент в структурированном виде, сохраняя иерархию страниц, вложенность и указываете для какой именно страницы контент. Изображения добавляйте с названием и т.д.
-								div(style='height: 300px; background-color: #b2b2b2')
+							+e.col-12.col-lg-5.col_order-first.col_order-lg-no
+								+e('p').gif-text Внимание! Убедительная просьба загруждайте контент в структурированном виде, сохраняя иерархию страниц, вложенность и указываете для какой именно страницы контент. Изображения добавляйте с названием и т.д.
+								+e.gif
 				// +e('footer').panel-footer
 			+e.panel(role='tabpanel')
 				+e('header').panel-header

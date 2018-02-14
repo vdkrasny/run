@@ -6,7 +6,7 @@ mixin sn-advant()
 				- var cardsInfo = getData('advant-cards');
 					each item in cardsInfo
 						.col-xs-6.col-md-4.col-xl-3
-							+b.card
+							+b.card._hover
 								+e.image-wrap
 									+e('img').image(src=item.imageSrc)
 								+e.content
